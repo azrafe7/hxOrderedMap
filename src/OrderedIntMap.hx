@@ -1,5 +1,5 @@
 import haxe.Constraints.IMap;
-import haxe.ds.OrderedIntMap;
+import haxe.ds.IntMap;
 
 class OrderedIntMap<T> implements haxe.Constraints.IMap<Int, T> {
 	@:allow(OrderedIntMapIterator)
@@ -14,7 +14,7 @@ class OrderedIntMap<T> implements haxe.Constraints.IMap<Int, T> {
 	/**
 		See `OrderedMap.set`
 	**/
-	public function set(key:String, value:T):Void {
+	public function set(key:Int, value:T):Void {
 		if (!map.exists(key))
 			orderedKeys.push(key);
 		map.set(key, value);
@@ -23,21 +23,21 @@ class OrderedIntMap<T> implements haxe.Constraints.IMap<Int, T> {
 	/**
 		See `OrderedMap.get`
 	**/
-	public function get(key:String):Null<T> {
+	public function get(key:Int):Null<T> {
 		return map.get(key);
 	}
 
 	/**
 		See `OrderedMap.exists`
 	**/
-	public function exists(key:String):Bool {
+	public function exists(key:Int):Bool {
 		return map.exists(key);
 	}
 
 	/**
 		See `OrderedMap.remove`
 	**/
-	public function remove(key:String):Bool {
+	public function remove(key:Int):Bool {
 		var removed = map.remove(key);
 		if (removed)
 			orderedKeys.remove(key);
@@ -47,7 +47,7 @@ class OrderedIntMap<T> implements haxe.Constraints.IMap<Int, T> {
 	/**
 		See `OrderedMap.keys`
 	**/
-	public function keys():Iterator<String> {
+	public function keys():Iterator<Int> {
 		return orderedKeys.iterator();
 	}
 
@@ -55,14 +55,14 @@ class OrderedIntMap<T> implements haxe.Constraints.IMap<Int, T> {
 		See `OrderedMap.iterator`
 	**/
 	public function iterator():Iterator<T> {
-		return new OrderedOrderedIntMapIterator(this);
+		return new OrderedIntMapIterator(this);
 	}
 
 	/**
 		See `OrderedMap.copy`
 	**/
-	public function copy():OrderedOrderedIntMap<T> {
-		var clone = new OrderedOrderedIntMap();
+	public function copy():OrderedIntMap<T> {
+		var clone = new OrderedIntMap();
 		for (k in orderedKeys)
 			clone.set(k, map.get(k));
 		return clone;
@@ -72,7 +72,7 @@ class OrderedIntMap<T> implements haxe.Constraints.IMap<Int, T> {
 		See `OrderedMap.toString`
 	**/
 	public function toString():String {
-		var k:String;
+		var k:Int;
 		var len = orderedKeys.length;
 		var str = "[";
 		for (i in 0...len) {
@@ -83,11 +83,11 @@ class OrderedIntMap<T> implements haxe.Constraints.IMap<Int, T> {
 	}
 }
 
-private class OrderedOrderedIntMapIterator<V> {
-	var map:OrderedOrderedIntMap<V>;
+private class OrderedIntMapIterator<V> {
+	var map:OrderedIntMap<V>;
 	var index:Int = 0;
 
-	public function new(omap:OrderedOrderedIntMap<V>) {
+	public function new(omap:OrderedIntMap<V>) {
 		map = omap;
 	}
 

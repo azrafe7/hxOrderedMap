@@ -3,15 +3,15 @@ import haxe.Constraints.IMap;
 @:multiType(@:followWithAbstracts K)
 abstract OrderedMap<K, V>(IMap<K, V>) {
 	/**
-		Creates a new Map.
+		Creates a new OrderedMap.
 
 		This becomes a constructor call to one of the specialization types in
 		the output. The rules for that are as follows:
 
-		1. if K is a `String`, `haxe.ds.StringMap` is used
-		2. if K is an `Int`, `haxe.ds.IntMap` is used
-		3. if K is an `EnumValue`, `haxe.ds.EnumValueMap` is used
-		4. if K is any other class or structure, `haxe.ds.ObjectMap` is used
+		1. if K is a `String`, `OrderedStringMap` is used
+		2. if K is an `Int`, `OrderdIntMap` is used
+		3. if K is an `EnumValue`, `OrderedEnumValueMap` is used
+		4. if K is any other class or structure, `OrderedObjectMap` is used
 		5. if K is any other type, it causes a compile-time error
 
 		(Cpp) Map does not use weak keys on ObjectMap by default.
@@ -64,7 +64,7 @@ abstract OrderedMap<K, V>(IMap<K, V>) {
 		return this.remove(key);
 
 	/**
-		Returns an Iterator over the keys of `this` Map.
+		Returns an Iterator over the keys of `this` map.
 
 		The order of keys is undefined.
 	**/
@@ -73,7 +73,7 @@ abstract OrderedMap<K, V>(IMap<K, V>) {
 	}
 
 	/**
-		Returns an Iterator over the values of `this` Map.
+		Returns an Iterator over the values of `this` map.
 
 		The order of values is undefined.
 	**/
@@ -91,7 +91,7 @@ abstract OrderedMap<K, V>(IMap<K, V>) {
 	}
 
 	/**
-		Returns a String representation of `this` Map.
+		Returns a String representation of `this` map.
 
 		The exact representation depends on the platform and key-type.
 	**/
@@ -108,10 +108,10 @@ abstract OrderedMap<K, V>(IMap<K, V>) {
 		return new OrderedStringMap<V>();
 	}
 
-	// @:to static inline function toIntMap<K:Int,V>(t:IMap<K,V>):IntMap<V> {
-	//	return new IntMap<V>();
-	// }
-	//
+	@:to static inline function toOrderedIntMap<K:Int,V>(t:IMap<K,V>):OrderedIntMap<V> {
+    return new OrderedIntMap<V>();
+	}
+	
 	// @:to static inline function toEnumValueMapMap<K:EnumValue,V>(t:IMap<K,V>):EnumValueMap<K,V> {
 	//	return new EnumValueMap<K, V>();
 	// }
