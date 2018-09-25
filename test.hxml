@@ -1,0 +1,7 @@
+-cp .
+-cp src
+-main TestAll
+
+-lib utest
+
+#-debug

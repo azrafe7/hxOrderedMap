@@ -1,0 +1,7 @@
+-cp .
+-cp src
+-main Main
+
+#-x bin\main
+
+#-debug
