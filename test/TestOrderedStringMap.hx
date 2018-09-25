@@ -64,4 +64,3 @@ class TestOrderedStringMap extends utest.Test {
 		}
 	}
 }
-
