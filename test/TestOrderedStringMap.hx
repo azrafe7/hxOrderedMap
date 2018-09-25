@@ -1,23 +1,4 @@
-import utest.Runner;
-import utest.ui.Report;
 import utest.Assert;
-
-class TestAll {
-	public static function iteratorToArray<K>(iterator:Iterator<K>):Array<K> {
-		var array = [];
-		for (i in iterator) {
-			array.push(i);
-		}
-		return array;
-	}
-
-	public static function main() {
-		utest.UTest.run([
-			new TestOrderedStringMap(),
-			// new TestCase2()
-		]);
-	}
-}
 
 class TestOrderedStringMap extends utest.Test {
 	var keys:Array<String>;
@@ -67,8 +48,8 @@ class TestOrderedStringMap extends utest.Test {
 		var omap = buildOrderedMapFrom(keys, stringValues);
 		var map = buildMapFrom(keys, stringValues);
 
-		var orderedKeys = TestAll.iteratorToArray(omap.keys());
-		var defaultKeys = TestAll.iteratorToArray(map.keys());
+		var orderedKeys = TestUtils.iteratorToArray(omap.keys());
+		var defaultKeys = TestUtils.iteratorToArray(map.keys());
 
 		Assert.equals(orderedKeys.length, defaultKeys.length);
 		Assert.same(keys, orderedKeys);
@@ -83,3 +64,4 @@ class TestOrderedStringMap extends utest.Test {
 		}
 	}
 }
+

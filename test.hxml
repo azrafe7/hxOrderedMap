@@ -1,5 +1,7 @@
 -cp .
 -cp src
+-cp test
+
 -main TestAll
 
 -lib utest
