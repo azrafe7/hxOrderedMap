@@ -62,7 +62,7 @@ class OrderedEnumValueMap<K:EnumValue, V> implements haxe.Constraints.IMap<K, V>
     See `OrderedMap.copy`
   **/
   public function copy():OrderedEnumValueMap<K, V> {
-    var clone = new OrderedEnumValueMap();
+    var clone = new OrderedEnumValueMap<K, V>();
     for (k in orderedKeys)
       clone.set(k, map.get(k));
     return clone;

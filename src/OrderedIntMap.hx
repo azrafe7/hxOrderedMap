@@ -62,7 +62,7 @@ class OrderedIntMap<T> implements haxe.Constraints.IMap<Int, T> {
     See `OrderedMap.copy`
   **/
   public function copy():OrderedIntMap<T> {
-    var clone = new OrderedIntMap();
+    var clone = new OrderedIntMap<T>();
     for (k in orderedKeys)
       clone.set(k, map.get(k));
     return clone;

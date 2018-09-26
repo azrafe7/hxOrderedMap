@@ -62,7 +62,7 @@ class OrderedObjectMap<K:{}, V> implements haxe.Constraints.IMap<K, V> {
     See `OrderedMap.copy`
   **/
   public function copy():OrderedObjectMap<K, V> {
-    var clone = new OrderedObjectMap();
+    var clone = new OrderedObjectMap<K, V>();
     for (k in orderedKeys)
       clone.set(k, map.get(k));
     return clone;

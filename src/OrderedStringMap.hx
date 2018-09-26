@@ -62,7 +62,7 @@ class OrderedStringMap<T> implements haxe.Constraints.IMap<String, T> {
     See `OrderedMap.copy`
   **/
   public function copy():OrderedStringMap<T> {
-    var clone = new OrderedStringMap();
+    var clone = new OrderedStringMap<T>();
     for (k in orderedKeys)
       clone.set(k, map.get(k));
     return clone;
