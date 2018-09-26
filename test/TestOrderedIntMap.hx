@@ -1,14 +1,14 @@
 import utest.Assert;
 
 class TestOrderedIntMap extends utest.Test {
-  var keys:Array<Int>;
-  var stringValues:Array<String>;
+  static public var keys:Array<Int>;
+  static public var stringValues:Array<String>;
 
   public function new() {
     super();
   }
 
-  function buildOrderedMapFrom(keys:Array<Int>, values) {
+  static public function buildOrderedMapFrom(keys:Array<Int>, values) {
     var omap = new OrderedMap();
 
     for (i in 0...keys.length) {
@@ -21,7 +21,7 @@ class TestOrderedIntMap extends utest.Test {
     return omap;
   }
 
-  function buildMapFrom(keys:Array<Int>, values) {
+  static public function buildMapFrom(keys:Array<Int>, values) {
     var map = new Map();
 
     for (i in 0...keys.length) {
