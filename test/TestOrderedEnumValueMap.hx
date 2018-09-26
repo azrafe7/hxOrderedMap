@@ -45,7 +45,7 @@ class TestOrderedEnumValueMap extends utest.Test {
       EArray(null, null),
       EConst(CString("5")),
     ];
-    
+
     stringValues = [for (i in 0...keys.length) Std.string(i)];
 
     // trace("ORDERED_MAP  : " + buildOrderedMapFrom(keys, stringValues));

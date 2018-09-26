@@ -5,6 +5,13 @@ import utest.Assert;
 
 class TestAll {
   public static function main() {
-    utest.UTest.run([new TestOrderedStringMap(), new TestOrderedIntMap(), new TestOrderedObjectMap(), new TestOrderedEnumValueMap(), new TestOrderedMapCloning(), new TestOrderedMapOps()]);
+    utest.UTest.run([
+      new TestOrderedStringMap(),
+      new TestOrderedIntMap(),
+      new TestOrderedObjectMap(),
+      new TestOrderedEnumValueMap(),
+      new TestOrderedMapCloning(),
+      new TestOrderedMapOps()
+    ]);
   }
 }
