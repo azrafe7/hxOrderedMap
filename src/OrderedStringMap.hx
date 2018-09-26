@@ -48,7 +48,7 @@ class OrderedStringMap<T> implements haxe.Constraints.IMap<String, T> {
     See `OrderedMap.keys`
   **/
   public function keys():Iterator<String> {
-    return orderedKeys.iterator();
+    return orderedKeys.copy().iterator();
   }
 
   /**

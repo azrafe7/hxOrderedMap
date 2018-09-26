@@ -48,7 +48,7 @@ class OrderedObjectMap<K:{}, V> implements haxe.Constraints.IMap<K, V> {
     See `OrderedMap.keys`
   **/
   public function keys():Iterator<K> {
-    return orderedKeys.iterator();
+    return orderedKeys.copy().iterator();
   }
 
   /**

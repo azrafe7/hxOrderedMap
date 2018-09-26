@@ -48,7 +48,7 @@ class OrderedIntMap<T> implements haxe.Constraints.IMap<Int, T> {
     See `OrderedMap.keys`
   **/
   public function keys():Iterator<Int> {
-    return orderedKeys.iterator();
+    return orderedKeys.copy().iterator();
   }
 
   /**
