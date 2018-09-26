@@ -34,7 +34,7 @@ class TestOrderedStringMap extends utest.Test {
     return map;
   }
 
-  function setup() {
+  public function setup() {
     // trace("-- SETUP");
     keys = ["1", "apple", "banana", "orange", "one", "two", "three"];
     stringValues = [for (i in 0...keys.length) Std.string(i)];

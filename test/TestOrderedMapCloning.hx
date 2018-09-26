@@ -7,6 +7,7 @@ class TestOrderedMapCloning extends utest.Test {
   }
 
   function testOrderedStringMapCloning() {
+    new TestOrderedStringMap().setup();
     var omap = TestOrderedStringMap.buildOrderedMapFrom(TestOrderedStringMap.keys, TestOrderedStringMap.stringValues);
     var omapClone = omap.copy();
     
@@ -26,6 +27,7 @@ class TestOrderedMapCloning extends utest.Test {
   }
 
   function testOrderedIntMapCloning() {
+    new TestOrderedIntMap().setup();
     var omap = TestOrderedIntMap.buildOrderedMapFrom(TestOrderedIntMap.keys, TestOrderedIntMap.stringValues);
     var omapClone = omap.copy();
     
@@ -45,6 +47,7 @@ class TestOrderedMapCloning extends utest.Test {
   }
 
   function testOrderedObjectMapCloning() {
+    new TestOrderedObjectMap().setup();
     var omap = TestOrderedObjectMap.buildOrderedMapFrom(TestOrderedObjectMap.keys, TestOrderedObjectMap.stringValues);
     var omapClone = omap.copy();
     

@@ -34,7 +34,7 @@ class TestOrderedObjectMap extends utest.Test {
     return map;
   }
 
-  function setup() {
+  public function setup() {
     // trace("-- SETUP");
     keys = [
       {number: "1"},

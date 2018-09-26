@@ -34,7 +34,7 @@ class TestOrderedIntMap extends utest.Test {
     return map;
   }
 
-  function setup() {
+  public function setup() {
     // trace("-- SETUP");
     keys = [0, 1, 2, 3, 4, 5, 6];
     stringValues = [for (i in 0...keys.length) Std.string(i)];
