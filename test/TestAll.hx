@@ -11,7 +11,8 @@ class TestAll {
       new TestOrderedObjectMap(),
       new TestOrderedEnumValueMap(),
       new TestOrderedMapCloning(),
-      new TestOrderedMapOps()
+      new TestOrderedMapOps(),
+      new TestOrderedMapExtraOps(),
     ]);
   }
 }
