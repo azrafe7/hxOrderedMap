@@ -10,7 +10,7 @@ class OrderedEnumValueMap<K:EnumValue, V> implements haxe.Constraints.IMap<K, V>
     Creates a new OrderedEnumValueMap.
   **/
   public function new():Void {}
-  
+
   /**
     See `OrderedMap.set`
   **/
@@ -67,23 +67,25 @@ class OrderedEnumValueMap<K:EnumValue, V> implements haxe.Constraints.IMap<K, V>
       clone.set(k, map.get(k));
     return clone;
   }
-  
+
   /**
     See `OrderedMap.orderedKeysCopy`
   **/
   public var orderedKeysCopy(get, never):Array<K>;
+
   inline function get_orderedKeysCopy():Array<K> {
     return orderedKeys.copy();
   }
-  
+
   /**
     See `OrderedMap.length`
   **/
   public var length(get, never):Int;
+
   inline function get_length():Int {
     return orderedKeys.length;
   }
-  
+
   /**
     See `OrderedMap.clear`
   **/
@@ -91,7 +93,7 @@ class OrderedEnumValueMap<K:EnumValue, V> implements haxe.Constraints.IMap<K, V>
     orderedKeys.resize(0);
     map = new EnumValueMap();
   }
-  
+
   /**
     See `OrderedMap.toString`
   **/

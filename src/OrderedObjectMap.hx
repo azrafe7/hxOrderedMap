@@ -1,7 +1,7 @@
 import haxe.Constraints.IMap;
 import haxe.ds.ObjectMap;
 
-class OrderedObjectMap<K:{}, V> implements haxe.Constraints.IMap<K, V>  implements IOrderedMap<K, V> {
+class OrderedObjectMap<K:{}, V> implements haxe.Constraints.IMap<K, V> implements IOrderedMap<K, V> {
   @:allow(OrderedObjectMapIterator)
   var orderedKeys:Array<K> = [];
   var map:ObjectMap<K, V> = new ObjectMap();
@@ -72,18 +72,20 @@ class OrderedObjectMap<K:{}, V> implements haxe.Constraints.IMap<K, V>  implemen
     See `OrderedMap.orderedKeysCopy`
   **/
   public var orderedKeysCopy(get, never):Array<K>;
+
   inline function get_orderedKeysCopy():Array<K> {
     return orderedKeys.copy();
   }
-  
+
   /**
     See `OrderedMap.length`
   **/
   public var length(get, never):Int;
+
   inline function get_length():Int {
     return orderedKeys.length;
   }
-  
+
   /**
     See `OrderedMap.clear`
   **/
@@ -91,7 +93,7 @@ class OrderedObjectMap<K:{}, V> implements haxe.Constraints.IMap<K, V>  implemen
     orderedKeys.resize(0);
     map = new ObjectMap();
   }
-  
+
   /**
     See `OrderedMap.toString`
   **/

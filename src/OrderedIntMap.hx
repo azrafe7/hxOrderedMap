@@ -72,18 +72,20 @@ class OrderedIntMap<T> implements haxe.Constraints.IMap<Int, T> implements IOrde
     See `OrderedMap.orderedKeysCopy`
   **/
   public var orderedKeysCopy(get, never):Array<Int>;
+
   inline function get_orderedKeysCopy():Array<Int> {
     return orderedKeys.copy();
   }
-  
+
   /**
     See `OrderedMap.length`
   **/
   public var length(get, never):Int;
+
   inline function get_length():Int {
     return orderedKeys.length;
   }
-  
+
   /**
     See `OrderedMap.clear`
   **/
@@ -91,7 +93,7 @@ class OrderedIntMap<T> implements haxe.Constraints.IMap<Int, T> implements IOrde
     orderedKeys.resize(0);
     map = new IntMap();
   }
-  
+
   /**
     See `OrderedMap.toString`
   **/

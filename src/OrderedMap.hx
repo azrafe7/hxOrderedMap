@@ -94,25 +94,27 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
     Returns a copy of the keys of `this` map in insertion order.
   **/
   public var orderedKeysCopy(get, never):Array<K>;
+
   inline function get_orderedKeysCopy():Array<K> {
     return this.orderedKeysCopy;
   }
-  
+
   /**
     Returns the number of key-values in `this` map.
   **/
   public var length(get, never):Int;
+
   inline function get_length():Int {
     return this.length;
   }
-  
+
   /**
     Empties the map.
   **/
   public function clear():Void {
     return this.clear();
   }
-  
+
   /**
     Returns a String representation of `this` map.
 
