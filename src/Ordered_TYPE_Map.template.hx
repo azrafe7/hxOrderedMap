@@ -72,7 +72,7 @@ class Ordered_TYPE_Map<T> implements haxe.Constraints.IMap<_TYPE_, T> {
 		See `OrderedMap.toString`
 	**/
 	public function toString():String {
-		var k:Int;
+		var k:_TYPE_;
 		var len = orderedKeys.length;
 		var str = "[";
 		for (i in 0...len) {
