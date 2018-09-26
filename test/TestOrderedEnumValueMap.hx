@@ -37,16 +37,16 @@ class TestOrderedEnumValueMap extends utest.Test {
 
   public function setup() {
     // trace("-- SETUP");
-    var test = [
-      1 => EContinue,
-      2 => EBreak,
-      3 => EConst(CString("bar")),
-      4 => EConst(CString("foo")),
-      5 => EArray(null, null),
+    keys = [
+      EContinue,
+      EBreak,
+      EConst(CString("bar")),
+      EConst(CString("foo")),
+      EArray(null, null),
+      EConst(CString("5")),
     ];
     
-    keys = [for (k in test.keys()) test[k]];
-    stringValues = [for (k in test.keys()) Std.string(k)];
+    stringValues = [for (i in 0...keys.length) Std.string(i)];
 
     // trace("ORDERED_MAP  : " + buildOrderedMapFrom(keys, stringValues));
     // trace("DEFAULT_MAP  : " + buildMapFrom(keys, stringValues));
