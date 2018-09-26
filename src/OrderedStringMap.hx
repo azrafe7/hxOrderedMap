@@ -7,12 +7,12 @@ class OrderedStringMap<T> implements haxe.Constraints.IMap<String, T> {
 	var map:StringMap<T> = new StringMap();
 
 	/**
-		Creates a new StringMap.
+		Creates a new OrderedStringMap.
 	**/
 	public function new():Void {}
 
 	/**
-		See `Map.set`
+		See `OrderedMap.set`
 	**/
 	public function set(key:String, value:T):Void {
 		if (!map.exists(key))
@@ -21,21 +21,21 @@ class OrderedStringMap<T> implements haxe.Constraints.IMap<String, T> {
 	}
 
 	/**
-		See `Map.get`
+		See `OrderedMap.get`
 	**/
 	public function get(key:String):Null<T> {
 		return map.get(key);
 	}
 
 	/**
-		See `Map.exists`
+		See `OrderedMap.exists`
 	**/
 	public function exists(key:String):Bool {
 		return map.exists(key);
 	}
 
 	/**
-		See `Map.remove`
+		See `OrderedMap.remove`
 	**/
 	public function remove(key:String):Bool {
 		var removed = map.remove(key);
@@ -45,21 +45,21 @@ class OrderedStringMap<T> implements haxe.Constraints.IMap<String, T> {
 	}
 
 	/**
-		See `Map.keys`
+		See `OrderedMap.keys`
 	**/
 	public function keys():Iterator<String> {
 		return orderedKeys.iterator();
 	}
 
 	/**
-		See `Map.iterator`
+		See `OrderedMap.iterator`
 	**/
 	public function iterator():Iterator<T> {
 		return new OrderedStringMapIterator(this);
 	}
 
 	/**
-		See `Map.copy`
+		See `OrderedMap.copy`
 	**/
 	public function copy():OrderedStringMap<T> {
 		var clone = new OrderedStringMap();
@@ -69,7 +69,7 @@ class OrderedStringMap<T> implements haxe.Constraints.IMap<String, T> {
 	}
 
 	/**
-		See `Map.toString`
+		See `OrderedMap.toString`
 	**/
 	public function toString():String {
 		var k:String;
