@@ -1,0 +1,14 @@
+{
+  "disableFormatting": false,
+  "emptyLines": {
+    "abstractEmptyLines": {
+      "beginType": 1
+    },
+    "classEmptyLines": {
+      "beginType": 1
+    }
+  },
+  "indentation": {
+    "character": "  "
+  }
+}
