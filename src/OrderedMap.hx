@@ -104,29 +104,32 @@ abstract OrderedMap<K, V>(IMap<K, V>) {
 		return v;
 	}
 
-	@:to static inline function toOrderedStringMap<K:String, V>(t:IMap<K, V>):OrderedStringMap<V> {
-		return new OrderedStringMap<V>();
-	}
+  @:to static inline function toOrderedStringMap<K:String, V>(t:IMap<K, V>):OrderedStringMap<V> {
+    return new OrderedStringMap<V>();
+  }
 
-	@:to static inline function toOrderedIntMap<K:Int, V>(t:IMap<K, V>):OrderedIntMap<V> {
-		return new OrderedIntMap<V>();
-	}
+  @:to static inline function toOrderedIntMap<K:Int, V>(t:IMap<K, V>):OrderedIntMap<V> {
+    return new OrderedIntMap<V>();
+  }
 
-	// @:to static inline function toEnumValueMapMap<K:EnumValue,V>(t:IMap<K,V>):EnumValueMap<K,V> {
-	//	return new EnumValueMap<K, V>();
-	// }
-	//
-	// @:to static inline function toObjectMap<K:{ },V>(t:IMap<K,V>):ObjectMap<K,V> {
-	//	return new ObjectMap<K, V>();
-	// }
-	@:from static inline function fromOrderedStringMap<V>(map:OrderedStringMap<V>):OrderedMap<String, V> {
-		return cast map;
-	}
-	// @:from static inline function fromIntMap<V>(map:IntMap<V>):Map< Int, V > {
-	//	return cast map;
-	// }
-	//
-	// @:from static inline function fromObjectMap<K:{ }, V>(map:ObjectMap<K,V>):Map<K,V> {
-	//	return cast map;
-	// }
+  // @:to static inline function toOrderedEnumValueMapMap<K:EnumValue,V>(t:IMap<K,V>):OrderedEnumValueMap<K,V> {
+  //	return new OrderedEnumValueMap<K, V>();
+  // }
+  //
+  @:to static inline function toOrderedObjectMap<K:{ },V>(t:IMap<K,V>):OrderedObjectMap<K,V> {
+   return new OrderedObjectMap<K, V>();
+  }
+
+
+  @:from static inline function fromOrderedStringMap<V>(map:OrderedStringMap<V>):OrderedMap<String, V> {
+    return cast map;
+  }
+
+  @:from static inline function fromOrderedIntMap<V>(map:OrderedIntMap<V>):OrderedMap< Int, V > {
+    return cast map;
+  }
+
+  @:from static inline function fromOrderedObjectMap<K:{ }, V>(map:OrderedObjectMap<K,V>):OrderedMap<K,V> {
+    return cast map;
+  }
 }
