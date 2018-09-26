@@ -86,7 +86,7 @@ abstract OrderedMap<K, V>(IMap<K, V>) {
 
 		The order of values is undefined.
 	**/
-	public inline function copy():Map<K, V> {
+	public inline function copy():OrderedMap<K, V> {
 		return cast this.copy();
 	}
 
