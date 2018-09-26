@@ -47,14 +47,14 @@ class OrderedStringMap<T> implements haxe.Constraints.IMap<String, T> {
   /**
     See `OrderedMap.keys`
   **/
-  public function keys():Iterator<String> {
+  inline public function keys():Iterator<String> {
     return orderedKeys.copy().iterator();
   }
 
   /**
     See `OrderedMap.iterator`
   **/
-  public function iterator():Iterator<T> {
+  inline public function iterator():Iterator<T> {
     return new OrderedStringMapIterator(this);
   }
 
@@ -87,15 +87,15 @@ private class OrderedStringMapIterator<V> {
   var map:OrderedStringMap<V>;
   var index:Int = 0;
 
-  public function new(omap:OrderedStringMap<V>) {
+  inline public function new(omap:OrderedStringMap<V>) {
     map = omap;
   }
 
-  public function hasNext():Bool {
+  inline public function hasNext():Bool {
     return index < map.orderedKeys.length;
   }
 
-  public function next():V {
+  inline public function next():V {
     return map.get(map.orderedKeys[index++]);
   }
 }

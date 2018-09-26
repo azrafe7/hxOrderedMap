@@ -47,14 +47,14 @@ class OrderedEnumValueMap<K:EnumValue, V> implements haxe.Constraints.IMap<K, V>
   /**
     See `OrderedMap.keys`
   **/
-  public function keys():Iterator<K> {
+  inline public function keys():Iterator<K> {
     return orderedKeys.copy().iterator();
   }
 
   /**
     See `OrderedMap.iterator`
   **/
-  public function iterator():Iterator<V> {
+  inline public function iterator():Iterator<V> {
     return new OrderedEnumValueMapIterator(this);
   }
 
@@ -87,15 +87,15 @@ private class OrderedEnumValueMapIterator<K:EnumValue, V> {
   var map:OrderedEnumValueMap<K, V>;
   var index:Int = 0;
 
-  public function new(omap:OrderedEnumValueMap<K, V>) {
+  inline public function new(omap:OrderedEnumValueMap<K, V>) {
     map = omap;
   }
 
-  public function hasNext():Bool {
+  inline public function hasNext():Bool {
     return index < map.orderedKeys.length;
   }
 
-  public function next():V {
+  inline public function next():V {
     return map.get(map.orderedKeys[index++]);
   }
 }
