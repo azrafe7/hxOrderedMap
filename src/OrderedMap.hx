@@ -1,7 +1,7 @@
 import haxe.Constraints.IMap;
 
 @:multiType(@:followWithAbstracts K)
-abstract OrderedMap<K, V>(IMap<K, V>) {
+abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
   /**
     Creates a new OrderedMap.
 
@@ -91,6 +91,29 @@ abstract OrderedMap<K, V>(IMap<K, V>) {
   }
 
   /**
+    Returns a copy of the keys of `this` map in insertion order.
+  **/
+  public var orderedKeysCopy(get, never):Array<K>;
+  inline function get_orderedKeysCopy():Array<K> {
+    return this.orderedKeysCopy;
+  }
+  
+  /**
+    Returns the number of key-values in `this` map.
+  **/
+  public var length(get, never):Int;
+  inline function get_length():Int {
+    return this.length;
+  }
+  
+  /**
+    Empties the map.
+  **/
+  public function clear():Void {
+    return this.clear();
+  }
+  
+  /**
     Returns a String representation of `this` map.
 
     The exact representation depends on the platform and key-type.
@@ -104,19 +127,19 @@ abstract OrderedMap<K, V>(IMap<K, V>) {
     return v;
   }
 
-  @:to static inline function toOrderedStringMap<K:String, V>(t:IMap<K, V>):OrderedStringMap<V> {
+  @:to static inline function toOrderedStringMap<K:String, V>(t:IOrderedMap<K, V>):OrderedStringMap<V> {
     return new OrderedStringMap<V>();
   }
 
-  @:to static inline function toOrderedIntMap<K:Int, V>(t:IMap<K, V>):OrderedIntMap<V> {
+  @:to static inline function toOrderedIntMap<K:Int, V>(t:IOrderedMap<K, V>):OrderedIntMap<V> {
     return new OrderedIntMap<V>();
   }
 
-  @:to static inline function toOrderedEnumValueMapMap<K:EnumValue, V>(t:IMap<K, V>):OrderedEnumValueMap<K, V> {
+  @:to static inline function toOrderedEnumValueMapMap<K:EnumValue, V>(t:IOrderedMap<K, V>):OrderedEnumValueMap<K, V> {
     return new OrderedEnumValueMap<K, V>();
   }
 
-  @:to static inline function toOrderedObjectMap<K:{}, V>(t:IMap<K, V>):OrderedObjectMap<K, V> {
+  @:to static inline function toOrderedObjectMap<K:{}, V>(t:IOrderedMap<K, V>):OrderedObjectMap<K, V> {
     return new OrderedObjectMap<K, V>();
   }
 

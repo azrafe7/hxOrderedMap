@@ -1,7 +1,7 @@
 import haxe.Constraints.IMap;
 import haxe.ds.IntMap;
 
-class OrderedIntMap<T> implements haxe.Constraints.IMap<Int, T> {
+class OrderedIntMap<T> implements haxe.Constraints.IMap<Int, T> implements IOrderedMap<Int, T> {
   @:allow(OrderedIntMapIterator)
   var orderedKeys:Array<Int> = [];
   var map:IntMap<T> = new IntMap();
@@ -68,6 +68,30 @@ class OrderedIntMap<T> implements haxe.Constraints.IMap<Int, T> {
     return clone;
   }
 
+  /**
+    See `OrderedMap.orderedKeysCopy`
+  **/
+  public var orderedKeysCopy(get, never):Array<Int>;
+  inline function get_orderedKeysCopy():Array<Int> {
+    return orderedKeys.copy();
+  }
+  
+  /**
+    See `OrderedMap.length`
+  **/
+  public var length(get, never):Int;
+  inline function get_length():Int {
+    return orderedKeys.length;
+  }
+  
+  /**
+    See `OrderedMap.clear`
+  **/
+  public function clear():Void {
+    orderedKeys.resize(0);
+    map = new IntMap();
+  }
+  
   /**
     See `OrderedMap.toString`
   **/

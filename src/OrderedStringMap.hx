@@ -1,7 +1,7 @@
 import haxe.Constraints.IMap;
 import haxe.ds.StringMap;
 
-class OrderedStringMap<T> implements haxe.Constraints.IMap<String, T> {
+class OrderedStringMap<T> implements haxe.Constraints.IMap<String, T>  implements IOrderedMap<String, T> {
   @:allow(OrderedStringMapIterator)
   var orderedKeys:Array<String> = [];
   var map:StringMap<T> = new StringMap();
@@ -68,6 +68,30 @@ class OrderedStringMap<T> implements haxe.Constraints.IMap<String, T> {
     return clone;
   }
 
+  /**
+    See `OrderedMap.orderedKeysCopy`
+  **/
+  public var orderedKeysCopy(get, never):Array<String>;
+  inline function get_orderedKeysCopy():Array<String> {
+    return orderedKeys.copy();
+  }
+  
+  /**
+    See `OrderedMap.length`
+  **/
+  public var length(get, never):Int;
+  inline function get_length():Int {
+    return orderedKeys.length;
+  }
+  
+  /**
+    See `OrderedMap.clear`
+  **/
+  public function clear():Void {
+    orderedKeys.resize(0);
+    map = new StringMap();
+  }
+  
   /**
     See `OrderedMap.toString`
   **/
