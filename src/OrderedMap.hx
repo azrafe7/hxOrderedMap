@@ -112,10 +112,10 @@ abstract OrderedMap<K, V>(IMap<K, V>) {
     return new OrderedIntMap<V>();
   }
 
-  // @:to static inline function toOrderedEnumValueMapMap<K:EnumValue,V>(t:IMap<K,V>):OrderedEnumValueMap<K,V> {
-  //	return new OrderedEnumValueMap<K, V>();
-  // }
-  //
+  @:to static inline function toOrderedEnumValueMapMap<K:EnumValue,V>(t:IMap<K,V>):OrderedEnumValueMap<K,V> {
+    return new OrderedEnumValueMap<K, V>();
+  }
+  
   @:to static inline function toOrderedObjectMap<K:{}, V>(t:IMap<K, V>):OrderedObjectMap<K, V> {
     return new OrderedObjectMap<K, V>();
   }
