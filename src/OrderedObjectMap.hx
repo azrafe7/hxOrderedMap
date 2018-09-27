@@ -1,7 +1,7 @@
 import haxe.Constraints.IMap;
 import haxe.ds.ObjectMap;
 
-class OrderedObjectMap<K:{}, V> implements haxe.Constraints.IMap<K, V> implements IOrderedMap<K, V> {
+class OrderedObjectMap<K:{}, V> implements IOrderedMap<K, V> {
   @:allow(OrderedObjectMapIterator)
   var orderedKeys:Array<K> = [];
   var map:ObjectMap<K, V> = new ObjectMap();

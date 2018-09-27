@@ -1,7 +1,7 @@
 import haxe.Constraints.IMap;
 import haxe.ds.IntMap;
 
-class OrderedIntMap<T> implements haxe.Constraints.IMap<Int, T> implements IOrderedMap<Int, T> {
+class OrderedIntMap<T> implements IOrderedMap<Int, T> {
   @:allow(OrderedIntMapIterator)
   var orderedKeys:Array<Int> = [];
   var map:IntMap<T> = new IntMap();

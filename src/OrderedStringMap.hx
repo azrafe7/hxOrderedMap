@@ -1,7 +1,7 @@
 import haxe.Constraints.IMap;
 import haxe.ds.StringMap;
 
-class OrderedStringMap<T> implements haxe.Constraints.IMap<String, T> implements IOrderedMap<String, T> {
+class OrderedStringMap<T> implements IOrderedMap<String, T> {
   @:allow(OrderedStringMapIterator)
   var orderedKeys:Array<String> = [];
   var map:StringMap<T> = new StringMap();

@@ -1,7 +1,7 @@
 import haxe.Constraints.IMap;
 import haxe.ds.EnumValueMap;
 
-class OrderedEnumValueMap<K:EnumValue, V> implements haxe.Constraints.IMap<K, V> implements IOrderedMap<K, V> {
+class OrderedEnumValueMap<K:EnumValue, V> implements IOrderedMap<K, V> {
   @:allow(OrderedEnumValueMapIterator)
   var orderedKeys:Array<K> = [];
   var map:EnumValueMap<K, V> = new EnumValueMap();
