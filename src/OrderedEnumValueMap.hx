@@ -4,15 +4,13 @@ import haxe.ds.EnumValueMap;
 @:forward
 @:native("OrderedEnumValueMap")
 abstract OrderedEnumValueMap<K:EnumValue, V>(OrderedEnumValueMapImpl<K, V>) from OrderedEnumValueMapImpl<K, V> {
-
-  public inline function new()
-  {
+  public inline function new() {
     this = new OrderedEnumValueMapImpl<K, V>();
   }
-  
+
   @:arrayAccess @:noCompletion public inline function _get(key:K)
     return this.get(key);
-  
+
   @:arrayAccess @:noCompletion public inline function _set(key:K, value:V)
     return this.set(key, value);
 }

@@ -4,15 +4,13 @@ import haxe.ds.IntMap;
 @:forward
 @:native("OrderedIntMap")
 abstract OrderedIntMap<T>(OrderedIntMapImpl<T>) from OrderedIntMapImpl<T> {
-
-  public inline function new()
-  {
+  public inline function new() {
     this = new OrderedIntMapImpl<T>();
   }
-  
+
   @:arrayAccess @:noCompletion public inline function _get(key:Int)
     return this.get(key);
-  
+
   @:arrayAccess @:noCompletion public inline function _set(key:Int, value:T)
     return this.set(key, value);
 }

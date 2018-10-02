@@ -4,15 +4,13 @@ import haxe.ds.ObjectMap;
 @:forward
 @:native("OrderedObjectMap")
 abstract OrderedObjectMap<K:{}, V>(OrderedObjectMapImpl<K, V>) from OrderedObjectMapImpl<K, V> {
-
-  public inline function new()
-  {
+  public inline function new() {
     this = new OrderedObjectMapImpl<K, V>();
   }
-  
+
   @:arrayAccess @:noCompletion public inline function _get(key:K)
     return this.get(key);
-  
+
   @:arrayAccess @:noCompletion public inline function _set(key:K, value:V)
     return this.set(key, value);
 }

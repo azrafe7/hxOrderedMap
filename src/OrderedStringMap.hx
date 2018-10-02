@@ -4,15 +4,13 @@ import haxe.ds.StringMap;
 @:forward
 @:native("OrderedStringMap")
 abstract OrderedStringMap<T>(OrderedStringMapImpl<T>) from OrderedStringMapImpl<T> {
-
-  public inline function new()
-  {
+  public inline function new() {
     this = new OrderedStringMapImpl<T>();
   }
-  
+
   @:arrayAccess @:noCompletion public inline function _get(key:String)
     return this.get(key);
-  
+
   @:arrayAccess @:noCompletion public inline function _set(key:String, value:T)
     return this.set(key, value);
 }
