@@ -125,6 +125,7 @@ class OrderedObjectMapImpl<K:{}, V> implements IOrderedMap<K, V> {
   }
 }
 
+@:native("OrderedObjectMapIterator")
 private class OrderedObjectMapIterator<K:{}, V> {
   var map:OrderedObjectMap<K, V>;
   var index:Int = 0;

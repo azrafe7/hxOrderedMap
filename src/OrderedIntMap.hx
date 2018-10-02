@@ -125,6 +125,7 @@ class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
   }
 }
 
+@:native("OrderedIntMapIterator")
 private class OrderedIntMapIterator<V> {
   var map:OrderedIntMap<V>;
   var index:Int = 0;

@@ -125,6 +125,7 @@ class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
   }
 }
 
+@:native("OrderedStringMapIterator")
 private class OrderedStringMapIterator<V> {
   var map:OrderedStringMap<V>;
   var index:Int = 0;

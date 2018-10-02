@@ -125,6 +125,7 @@ class OrderedEnumValueMapImpl<K:EnumValue, V> implements IOrderedMap<K, V> {
   }
 }
 
+@:native("OrderedEnumValueMapIterator")
 private class OrderedEnumValueMapIterator<K:EnumValue, V> {
   var map:OrderedEnumValueMap<K, V>;
   var index:Int = 0;
