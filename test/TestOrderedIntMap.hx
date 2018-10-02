@@ -1,6 +1,5 @@
 import utest.Assert;
 
-
 class TestOrderedIntMap extends utest.Test {
 
   static public var keys:Array<Int>;

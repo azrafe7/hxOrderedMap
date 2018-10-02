@@ -1,7 +1,6 @@
 import haxe.Constraints.IMap;
 import haxe.ds.StringMap;
 
-
 @:forward
 @:native("OrderedStringMap")
 abstract OrderedStringMap<T>(OrderedStringMapImpl<T>) from OrderedStringMapImpl<T> {
@@ -16,7 +15,6 @@ abstract OrderedStringMap<T>(OrderedStringMapImpl<T>) from OrderedStringMapImpl<
   @:arrayAccess @:noCompletion public inline function _set(key:String, value:T)
     return this.set(key, value);
 }
-
 
 class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
 
@@ -126,7 +124,6 @@ class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
     return str + "]";
   }
 }
-
 
 @:native("OrderedStringMapIterator")
 private class OrderedStringMapIterator<V> {

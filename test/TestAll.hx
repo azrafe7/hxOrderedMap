@@ -9,7 +9,6 @@ import OrderedIntMap;
 import OrderedObjectMap;
 import OrderedEnumValueMap;
 
-
 class TestAll {
 
   public static function main() {

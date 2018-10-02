@@ -6,9 +6,9 @@
     },
     "classEmptyLines": {
       "beginType": 1
-    }
+    },
     "afterLeftCurly": "keep",
-    "maxAnywhereInFile": 2,
+    "maxAnywhereInFile": 2
   },
   "indentation": {
     "character": "  "
