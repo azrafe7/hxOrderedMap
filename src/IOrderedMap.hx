@@ -1,7 +1,7 @@
 import haxe.Constraints.IMap;
 
-interface IOrderedMap<K, V> extends IMap<K, V> {
-#if cpp
+interface IOrderedMap<K, V> /*extends IMap<K, V>*/ {
+
   public function get(k:K):Null<V>;
   public function set(k:K, v:V):Void;
   public function exists(k:K):Bool;
@@ -10,7 +10,6 @@ interface IOrderedMap<K, V> extends IMap<K, V> {
   public function iterator():Iterator<V>;
   public function copy():IOrderedMap<K,V>;
   public function toString():String;
-#end
 
   var length(get, null):Int;
   var orderedKeysCopy(get, null):Array<K>;
