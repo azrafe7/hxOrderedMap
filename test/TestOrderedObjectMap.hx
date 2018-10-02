@@ -68,6 +68,7 @@ class TestOrderedObjectMap extends utest.Test {
     var map = buildMapFrom(keys, stringValues);
 
     for (k in map.keys()) {
+      Assert.isTrue(map.exists(k) && omap.exists(k));
       Assert.equals(map[k], omap[k]);
     }
   }

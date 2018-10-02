@@ -44,6 +44,7 @@ class TestOrderedEnumValueMap extends utest.Test {
       EConst(CString("foo")),
       EArray(null, null),
       EConst(CString("5")),
+      EConst(CInt("6")),
     ];
 
     stringValues = [for (i in 0...keys.length) Std.string(i)];
@@ -69,6 +70,7 @@ class TestOrderedEnumValueMap extends utest.Test {
     var map = buildMapFrom(keys, stringValues);
 
     for (k in map.keys()) {
+      Assert.isTrue(map.exists(k) && omap.exists(k));
       Assert.equals(map[k], omap[k]);
     }
   }
