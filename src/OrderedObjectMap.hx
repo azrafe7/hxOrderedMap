@@ -1,9 +1,11 @@
 import haxe.Constraints.IMap;
 import haxe.ds.ObjectMap;
 
+
 @:forward
 @:native("OrderedObjectMap")
 abstract OrderedObjectMap<K:{}, V>(OrderedObjectMapImpl<K, V>) from OrderedObjectMapImpl<K, V> {
+
   public inline function new() {
     this = new OrderedObjectMapImpl<K, V>();
   }
@@ -15,7 +17,9 @@ abstract OrderedObjectMap<K:{}, V>(OrderedObjectMapImpl<K, V>) from OrderedObjec
     return this.set(key, value);
 }
 
+
 class OrderedObjectMapImpl<K:{}, V> implements IOrderedMap<K, V> {
+
   @:allow(OrderedObjectMapIterator)
   var orderedKeys:Array<K> = [];
   var map:ObjectMap<K, V> = new ObjectMap();
@@ -123,8 +127,10 @@ class OrderedObjectMapImpl<K:{}, V> implements IOrderedMap<K, V> {
   }
 }
 
+
 @:native("OrderedObjectMapIterator")
 private class OrderedObjectMapIterator<K:{}, V> {
+
   var map:OrderedObjectMap<K, V>;
   var index:Int = 0;
 

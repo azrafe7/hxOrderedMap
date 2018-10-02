@@ -1,8 +1,10 @@
 import haxe.Constraints.IMap;
 
+
 @:multiType(@:followWithAbstracts K)
 @:native("OrderedMap")
 abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
+  
   /**
     Creates a new OrderedMap.
 

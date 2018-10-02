@@ -1,9 +1,11 @@
 import haxe.Constraints.IMap;
 import haxe.ds.IntMap;
 
+
 @:forward
 @:native("OrderedIntMap")
 abstract OrderedIntMap<T>(OrderedIntMapImpl<T>) from OrderedIntMapImpl<T> {
+
   public inline function new() {
     this = new OrderedIntMapImpl<T>();
   }
@@ -15,7 +17,9 @@ abstract OrderedIntMap<T>(OrderedIntMapImpl<T>) from OrderedIntMapImpl<T> {
     return this.set(key, value);
 }
 
+
 class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
+  
   @:allow(OrderedIntMapIterator)
   var orderedKeys:Array<Int> = [];
   var map:IntMap<T> = new IntMap();
@@ -123,8 +127,10 @@ class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
   }
 }
 
+
 @:native("OrderedIntMapIterator")
 private class OrderedIntMapIterator<V> {
+
   var map:OrderedIntMap<V>;
   var index:Int = 0;
 

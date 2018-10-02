@@ -1,9 +1,11 @@
 import haxe.Constraints.IMap;
 import haxe.ds.EnumValueMap;
 
+
 @:forward
 @:native("OrderedEnumValueMap")
 abstract OrderedEnumValueMap<K:EnumValue, V>(OrderedEnumValueMapImpl<K, V>) from OrderedEnumValueMapImpl<K, V> {
+
   public inline function new() {
     this = new OrderedEnumValueMapImpl<K, V>();
   }
@@ -15,7 +17,9 @@ abstract OrderedEnumValueMap<K:EnumValue, V>(OrderedEnumValueMapImpl<K, V>) from
     return this.set(key, value);
 }
 
+
 class OrderedEnumValueMapImpl<K:EnumValue, V> implements IOrderedMap<K, V> {
+  
   @:allow(OrderedEnumValueMapIterator)
   var orderedKeys:Array<K> = [];
   var map:EnumValueMap<K, V> = new EnumValueMap();
@@ -123,8 +127,10 @@ class OrderedEnumValueMapImpl<K:EnumValue, V> implements IOrderedMap<K, V> {
   }
 }
 
+
 @:native("OrderedEnumValueMapIterator")
 private class OrderedEnumValueMapIterator<K:EnumValue, V> {
+  
   var map:OrderedEnumValueMap<K, V>;
   var index:Int = 0;
 
