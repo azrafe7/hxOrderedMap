@@ -1,6 +1,7 @@
 import haxe.Constraints.IMap;
 
 interface IOrderedMap<K, V> /*extends IMap<K, V>*/ {
+
   function get(k:K):Null<V>;
   function set(k:K, v:V):Void;
   function exists(k:K):Bool;

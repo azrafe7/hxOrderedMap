@@ -7,6 +7,9 @@
     "classEmptyLines": {
       "beginType": 1
     },
+    "interfaceEmptyLines": {
+      "beginType": 1
+    },
     "afterLeftCurly": "keep",
     "maxAnywhereInFile": 2
   },
