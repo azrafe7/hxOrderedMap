@@ -41,14 +41,14 @@ class OrderedObjectMapImpl<K:{}, V> implements IOrderedMap<K, V> {
   /**
     See `OrderedMap.get`
   **/
-  public function get(key:K):Null<V> {
+  inline public function get(key:K):Null<V> {
     return map.get(key);
   }
 
   /**
     See `OrderedMap.exists`
   **/
-  public function exists(key:K):Bool {
+  inline public function exists(key:K):Bool {
     return map.exists(key);
   }
 

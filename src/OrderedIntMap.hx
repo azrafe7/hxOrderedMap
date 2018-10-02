@@ -41,14 +41,14 @@ class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
   /**
     See `OrderedMap.get`
   **/
-  public function get(key:Int):Null<T> {
+  inline public function get(key:Int):Null<T> {
     return map.get(key);
   }
 
   /**
     See `OrderedMap.exists`
   **/
-  public function exists(key:Int):Bool {
+  inline public function exists(key:Int):Bool {
     return map.exists(key);
   }
 
