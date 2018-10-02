@@ -21,7 +21,9 @@ class TestOrderedMapOps extends utest.Test {
     Assert.equals(k, orderedKeys[orderedKeys.length - 1]);
 
     for (k in omap.keys())
-      omap.remove(k);
+      Assert.isTrue(omap.remove(k));
+    Assert.isFalse(omap.remove(k));  
+      
     Assert.equals(0, TestUtils.iteratorToArray(omap.iterator()).length);
   }
 
@@ -41,7 +43,9 @@ class TestOrderedMapOps extends utest.Test {
     Assert.equals(k, orderedKeys[orderedKeys.length - 1]);
 
     for (k in omap.keys())
-      omap.remove(k);
+      Assert.isTrue(omap.remove(k));
+    Assert.isFalse(omap.remove(k));  
+      
     Assert.equals(0, TestUtils.iteratorToArray(omap.iterator()).length);
   }
 
@@ -61,7 +65,9 @@ class TestOrderedMapOps extends utest.Test {
     Assert.equals(k, orderedKeys[orderedKeys.length - 1]);
 
     for (k in omap.keys())
-      omap.remove(k);
+      Assert.isTrue(omap.remove(k));
+    Assert.isFalse(omap.remove(k));  
+      
     Assert.equals(0, TestUtils.iteratorToArray(omap.iterator()).length);
   }
 
@@ -81,7 +87,9 @@ class TestOrderedMapOps extends utest.Test {
     Assert.equals(k, orderedKeys[orderedKeys.length - 1]);
 
     for (k in omap.keys())
-      omap.remove(k);
+      Assert.isTrue(omap.remove(k));
+    Assert.isFalse(omap.remove(k));  
+      
     Assert.equals(0, TestUtils.iteratorToArray(omap.iterator()).length);
   }
 }
