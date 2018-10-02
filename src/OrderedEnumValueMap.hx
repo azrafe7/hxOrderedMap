@@ -1,7 +1,23 @@
 import haxe.Constraints.IMap;
 import haxe.ds.EnumValueMap;
 
-class OrderedEnumValueMap<K:EnumValue, V> implements IOrderedMap<K, V> {
+@:forward
+@:native("OrderedEnumValueMap")
+abstract OrderedEnumValueMap<K:EnumValue, V>(OrderedEnumValueMapImpl<K, V>) from OrderedEnumValueMapImpl<K, V> {
+
+  public inline function new()
+  {
+    this = new OrderedEnumValueMapImpl<K, V>();
+  }
+  
+  @:arrayAccess @:noCompletion public inline function _get(key:K)
+    return this.get(key);
+  
+  @:arrayAccess @:noCompletion public inline function _set(key:K, value:V)
+    return this.set(key, value);
+}
+
+class OrderedEnumValueMapImpl<K:EnumValue, V> implements IOrderedMap<K, V> {
   @:allow(OrderedEnumValueMapIterator)
   var orderedKeys:Array<K> = [];
   var map:EnumValueMap<K, V> = new EnumValueMap();
@@ -61,8 +77,8 @@ class OrderedEnumValueMap<K:EnumValue, V> implements IOrderedMap<K, V> {
   /**
     See `OrderedMap.copy`
   **/
-  public function copy():OrderedEnumValueMap<K, V> {
-    var clone = new OrderedEnumValueMap<K, V>();
+  public function copy():OrderedEnumValueMapImpl<K, V> {
+    var clone = new OrderedEnumValueMapImpl<K, V>();
     for (k in orderedKeys)
       clone.set(k, map.get(k));
     return clone;

@@ -15,7 +15,7 @@ class TestOrderedMapOps extends utest.Test {
     Assert.isFalse(omap.exists(k));
 
     var v = TestOrderedStringMap.stringValues[2];
-    omap.set(k, v);
+    omap[k] = v;
     Assert.isTrue(omap.exists(k) && omap[k] == v);
     var orderedKeys = TestUtils.iteratorToArray(omap.keys());
     Assert.equals(k, orderedKeys[orderedKeys.length - 1]);
@@ -35,7 +35,7 @@ class TestOrderedMapOps extends utest.Test {
     Assert.isFalse(omap.exists(k));
 
     var v = TestOrderedIntMap.stringValues[2];
-    omap.set(k, v);
+    omap[k] = v;
     Assert.isTrue(omap.exists(k) && omap[k] == v);
     var orderedKeys = TestUtils.iteratorToArray(omap.keys());
     Assert.equals(k, orderedKeys[orderedKeys.length - 1]);
@@ -55,7 +55,7 @@ class TestOrderedMapOps extends utest.Test {
     Assert.isFalse(omap.exists(k));
 
     var v = TestOrderedObjectMap.stringValues[2];
-    omap.set(k, v);
+    omap[k] = v;
     Assert.isTrue(omap.exists(k) && omap[k] == v);
     var orderedKeys = TestUtils.iteratorToArray(omap.keys());
     Assert.equals(k, orderedKeys[orderedKeys.length - 1]);
@@ -75,7 +75,7 @@ class TestOrderedMapOps extends utest.Test {
     Assert.isFalse(omap.exists(k));
 
     var v = TestOrderedEnumValueMap.stringValues[2];
-    omap.set(k, v);
+    omap[k] = v;
     Assert.isTrue(omap.exists(k) && omap[k] == v);
     var orderedKeys = TestUtils.iteratorToArray(omap.keys());
     Assert.equals(k, orderedKeys[orderedKeys.length - 1]);

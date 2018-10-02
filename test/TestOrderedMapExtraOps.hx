@@ -18,6 +18,9 @@ class TestOrderedMapExtraOps extends utest.Test {
 
     omap.clear();
     Assert.equals(0, TestUtils.iteratorToArray(omap.iterator()).length);
+    
+    var accessOMap = new OrderedStringMap();
+    accessOMap[keysCopy[0]] = TestOrderedStringMap.stringValues[0];
   }
 
   function testOrderedIntMapExtraOps() {
@@ -33,6 +36,9 @@ class TestOrderedMapExtraOps extends utest.Test {
 
     omap.clear();
     Assert.equals(0, TestUtils.iteratorToArray(omap.iterator()).length);
+    
+    var accessOMap = new OrderedIntMap();
+    accessOMap[keysCopy[0]] = TestOrderedIntMap.stringValues[0];
   }
 
   function testOrderedObjectMapExtraOps() {
@@ -48,6 +54,9 @@ class TestOrderedMapExtraOps extends utest.Test {
 
     omap.clear();
     Assert.equals(0, TestUtils.iteratorToArray(omap.iterator()).length);
+    
+    var accessOMap = new OrderedObjectMap();
+    accessOMap[keysCopy[0]] = TestOrderedObjectMap.stringValues[0];
   }
 
   function testOrderedEnumValueMapExtraOps() {
@@ -63,5 +72,8 @@ class TestOrderedMapExtraOps extends utest.Test {
 
     omap.clear();
     Assert.equals(0, TestUtils.iteratorToArray(omap.iterator()).length);
+    
+    var accessOMap = new OrderedEnumValueMap();
+    accessOMap[keysCopy[0]] = TestOrderedEnumValueMap.stringValues[0];
   }
 }

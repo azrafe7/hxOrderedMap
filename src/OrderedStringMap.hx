@@ -1,7 +1,23 @@
 import haxe.Constraints.IMap;
 import haxe.ds.StringMap;
 
-class OrderedStringMap<T> implements IOrderedMap<String, T> {
+@:forward
+@:native("OrderedStringMap")
+abstract OrderedStringMap<T>(OrderedStringMapImpl<T>) from OrderedStringMapImpl<T> {
+
+  public inline function new()
+  {
+    this = new OrderedStringMapImpl<T>();
+  }
+  
+  @:arrayAccess @:noCompletion public inline function _get(key:String)
+    return this.get(key);
+  
+  @:arrayAccess @:noCompletion public inline function _set(key:String, value:T)
+    return this.set(key, value);
+}
+
+class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
   @:allow(OrderedStringMapIterator)
   var orderedKeys:Array<String> = [];
   var map:StringMap<T> = new StringMap();
@@ -61,8 +77,8 @@ class OrderedStringMap<T> implements IOrderedMap<String, T> {
   /**
     See `OrderedMap.copy`
   **/
-  public function copy():OrderedStringMap<T> {
-    var clone = new OrderedStringMap<T>();
+  public function copy():OrderedStringMapImpl<T> {
+    var clone = new OrderedStringMapImpl<T>();
     for (k in orderedKeys)
       clone.set(k, map.get(k));
     return clone;

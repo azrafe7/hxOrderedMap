@@ -1,7 +1,23 @@
 import haxe.Constraints.IMap;
 import haxe.ds.ObjectMap;
 
-class OrderedObjectMap<K:{}, V> implements IOrderedMap<K, V> {
+@:forward
+@:native("OrderedObjectMap")
+abstract OrderedObjectMap<K:{}, V>(OrderedObjectMapImpl<K, V>) from OrderedObjectMapImpl<K, V> {
+
+  public inline function new()
+  {
+    this = new OrderedObjectMapImpl<K, V>();
+  }
+  
+  @:arrayAccess @:noCompletion public inline function _get(key:K)
+    return this.get(key);
+  
+  @:arrayAccess @:noCompletion public inline function _set(key:K, value:V)
+    return this.set(key, value);
+}
+
+class OrderedObjectMapImpl<K:{}, V> implements IOrderedMap<K, V> {
   @:allow(OrderedObjectMapIterator)
   var orderedKeys:Array<K> = [];
   var map:ObjectMap<K, V> = new ObjectMap();
@@ -61,8 +77,8 @@ class OrderedObjectMap<K:{}, V> implements IOrderedMap<K, V> {
   /**
     See `OrderedMap.copy`
   **/
-  public function copy():OrderedObjectMap<K, V> {
-    var clone = new OrderedObjectMap<K, V>();
+  public function copy():OrderedObjectMapImpl<K, V> {
+    var clone = new OrderedObjectMapImpl<K, V>();
     for (k in orderedKeys)
       clone.set(k, map.get(k));
     return clone;
