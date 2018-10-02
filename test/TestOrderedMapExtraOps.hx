@@ -11,7 +11,9 @@ class TestOrderedMapExtraOps extends utest.Test {
     var omap = TestOrderedStringMap.buildOrderedMapFrom(TestOrderedStringMap.keys, TestOrderedStringMap.stringValues);
 
     var keysCopy = omap.orderedKeysCopy;
-    Assert.notEquals(keysCopy, @:privateAccess(omap: OrderedStringMap<String>) .orderedKeys);
+    // @formatter:off
+    Assert.notEquals(keysCopy, @:privateAccess (omap:OrderedStringMap<String>).orderedKeys);
+    // @formatter:on
     Assert.same(TestUtils.iteratorToArray(omap.keys()), keysCopy);
 
     var len = omap.length;
@@ -30,7 +32,9 @@ class TestOrderedMapExtraOps extends utest.Test {
     var omap = TestOrderedIntMap.buildOrderedMapFrom(TestOrderedIntMap.keys, TestOrderedIntMap.stringValues);
 
     var keysCopy = omap.orderedKeysCopy;
-    Assert.notEquals(keysCopy, @:privateAccess(omap: OrderedIntMap<String>) .orderedKeys);
+    // @formatter:off
+    Assert.notEquals(keysCopy, @:privateAccess (omap:OrderedIntMap<String>).orderedKeys);
+    // @formatter:on
     Assert.same(TestUtils.iteratorToArray(omap.keys()), keysCopy);
 
     var len = omap.length;
@@ -49,7 +53,9 @@ class TestOrderedMapExtraOps extends utest.Test {
     var omap = TestOrderedObjectMap.buildOrderedMapFrom(TestOrderedObjectMap.keys, TestOrderedObjectMap.stringValues);
 
     var keysCopy = omap.orderedKeysCopy;
-    Assert.notEquals(keysCopy, @:privateAccess(omap: OrderedObjectMap<{}, String>) .orderedKeys);
+    // @formatter:off
+    Assert.notEquals(keysCopy, @:privateAccess (omap:OrderedObjectMap<{}, String>).orderedKeys);
+    // @formatter:on
     Assert.same(TestUtils.iteratorToArray(omap.keys()), keysCopy);
 
     var len = omap.length;
@@ -68,7 +74,9 @@ class TestOrderedMapExtraOps extends utest.Test {
     var omap = TestOrderedEnumValueMap.buildOrderedMapFrom(TestOrderedEnumValueMap.keys, TestOrderedEnumValueMap.stringValues);
 
     var keysCopy = omap.orderedKeysCopy;
-    Assert.notEquals(keysCopy, @:privateAccess(omap: OrderedEnumValueMap<EnumValue, String>) .orderedKeys);
+    // @formatter:off
+    Assert.notEquals(keysCopy, @:privateAccess (omap:OrderedEnumValueMap<EnumValue, String>).orderedKeys);
+    // @formatter:on
     Assert.same(TestUtils.iteratorToArray(omap.keys()), keysCopy);
 
     var len = omap.length;
