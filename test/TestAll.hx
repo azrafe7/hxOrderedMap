@@ -9,7 +9,9 @@ import OrderedIntMap;
 import OrderedObjectMap;
 import OrderedEnumValueMap;
 
+
 class TestAll {
+
   public static function main() {
     utest.UTest.run([
       new TestOrderedStringMap(),

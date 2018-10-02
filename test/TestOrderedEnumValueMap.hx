@@ -1,7 +1,9 @@
 import utest.Assert;
 import haxe.macro.Expr;
 
+
 class TestOrderedEnumValueMap extends utest.Test {
+
   static public var keys:Array<EnumValue>;
   static public var stringValues:Array<String>;
 
