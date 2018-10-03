@@ -4,11 +4,7 @@ import sys.io.File.*;
 import haxe.*;
 import haxe.io.*;
 
-#if (haxe_ver < 4)
 import haxe.xml.Fast as Access;
-#else
-import haxe.xml.Access;
-#end
 
 class Install {
 	// https://www.adobe.com/support/flashplayer/downloads.html
