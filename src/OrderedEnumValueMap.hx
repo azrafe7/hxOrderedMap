@@ -94,11 +94,9 @@ class OrderedEnumValueMapImpl<K:EnumValue, V> implements IOrderedMap<K, V> {
   }
 
   /**
-    See `OrderedMap.orderedKeysCopy`
+    See `OrderedMap.keysCopy`
   **/
-  public var orderedKeysCopy(get, never):Array<K>;
-
-  inline function get_orderedKeysCopy():Array<K> {
+  public inline function keysCopy():Array<K> {
     return orderedKeys.copy();
   }
 

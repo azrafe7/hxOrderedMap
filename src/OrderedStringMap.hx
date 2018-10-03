@@ -91,11 +91,9 @@ class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
   }
 
   /**
-    See `OrderedMap.orderedKeysCopy`
+    See `OrderedMap.keysCopy`
   **/
-  public var orderedKeysCopy(get, never):Array<String>;
-
-  inline function get_orderedKeysCopy():Array<String> {
+  public inline function keysCopy():Array<String> {
     return orderedKeys.copy();
   }
 

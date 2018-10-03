@@ -101,10 +101,8 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
   /**
     Returns a copy of the keys of `this` map in order of insertion.
   **/
-  public var orderedKeysCopy(get, never):Array<K>;
-
-  inline function get_orderedKeysCopy():Array<K> {
-    return this.orderedKeysCopy;
+  public inline function keysCopy():Array<K> {
+    return this.keysCopy();
   }
 
   /**
@@ -117,7 +115,9 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
   }
 
   /**
-    Empties the map.
+    Empties the map (in place).
+    
+    Reference to the map stays the same.
   **/
   public function clear():Void {
     return this.clear();

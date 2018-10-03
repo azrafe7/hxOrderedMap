@@ -11,6 +11,6 @@ interface IOrderedMap<K, V> /*extends IMap<K, V>*/ {
   function copy():IOrderedMap<K, V>;
   function toString():String;
   var length(get, null):Int;
-  var orderedKeysCopy(get, null):Array<K>;
+  function keysCopy():Array<K>;
   function clear():Void;
 }

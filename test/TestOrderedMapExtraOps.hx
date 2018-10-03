@@ -10,7 +10,7 @@ class TestOrderedMapExtraOps extends utest.Test {
     new TestOrderedStringMap().setup();
     var omap = TestOrderedStringMap.buildOrderedMapFrom(TestOrderedStringMap.keys, TestOrderedStringMap.stringValues);
 
-    var keysCopy = omap.orderedKeysCopy;
+    var keysCopy = omap.keysCopy();
     // @formatter:off
     Assert.notEquals(keysCopy, @:privateAccess (omap:OrderedStringMap<String>).orderedKeys);
     // @formatter:on
@@ -31,7 +31,7 @@ class TestOrderedMapExtraOps extends utest.Test {
     new TestOrderedIntMap().setup();
     var omap = TestOrderedIntMap.buildOrderedMapFrom(TestOrderedIntMap.keys, TestOrderedIntMap.stringValues);
 
-    var keysCopy = omap.orderedKeysCopy;
+    var keysCopy = omap.keysCopy();
     // @formatter:off
     Assert.notEquals(keysCopy, @:privateAccess (omap:OrderedIntMap<String>).orderedKeys);
     // @formatter:on
@@ -52,7 +52,7 @@ class TestOrderedMapExtraOps extends utest.Test {
     new TestOrderedObjectMap().setup();
     var omap = TestOrderedObjectMap.buildOrderedMapFrom(TestOrderedObjectMap.keys, TestOrderedObjectMap.stringValues);
 
-    var keysCopy = omap.orderedKeysCopy;
+    var keysCopy = omap.keysCopy();
     // @formatter:off
     Assert.notEquals(keysCopy, @:privateAccess (omap:OrderedObjectMap<{}, String>).orderedKeys);
     // @formatter:on
@@ -73,7 +73,7 @@ class TestOrderedMapExtraOps extends utest.Test {
     new TestOrderedEnumValueMap().setup();
     var omap = TestOrderedEnumValueMap.buildOrderedMapFrom(TestOrderedEnumValueMap.keys, TestOrderedEnumValueMap.stringValues);
 
-    var keysCopy = omap.orderedKeysCopy;
+    var keysCopy = omap.keysCopy();
     // @formatter:off
     Assert.notEquals(keysCopy, @:privateAccess (omap:OrderedEnumValueMap<EnumValue, String>).orderedKeys);
     // @formatter:on
