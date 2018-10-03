@@ -4,14 +4,15 @@ language: haxe
 # Let's enable both linux and mac builds because why not?
 os:
   - linux
-  - osx
+#  - osx
 
 # Let's use Ubuntu Trusty instead of Precise, which reached its EOL on April 28, 2017.
 dist: trusty
 
 # Test with Haxe 3.4.7 and Haxe development.
 haxe:
-  - "3.4.7"
+#  - "3.4.7"
+#  - stable
   - development
 
 neko: "2.2.0"
