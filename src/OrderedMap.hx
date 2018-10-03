@@ -116,7 +116,7 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
 
   /**
     Empties the map (in place).
-    
+
     Reference to the map stays the same.
   **/
   public function clear():Void {

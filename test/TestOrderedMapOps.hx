@@ -6,7 +6,7 @@ class TestOrderedMapOps extends utest.Test {
     super();
   }
 
-  function testOrderedStringMapOps() {
+  function testOStringMap() {
     new TestOrderedStringMap().setup();
     var omap = TestOrderedStringMap.buildOrderedMapFrom(TestOrderedStringMap.keys, TestOrderedStringMap.stringValues);
 
@@ -28,7 +28,7 @@ class TestOrderedMapOps extends utest.Test {
     Assert.equals(0, TestUtils.iteratorToArray(omap.iterator()).length);
   }
 
-  function testOrderedIntMapOps() {
+  function testOIntMap() {
     new TestOrderedIntMap().setup();
     var omap = TestOrderedIntMap.buildOrderedMapFrom(TestOrderedIntMap.keys, TestOrderedIntMap.stringValues);
 
@@ -50,7 +50,7 @@ class TestOrderedMapOps extends utest.Test {
     Assert.equals(0, TestUtils.iteratorToArray(omap.iterator()).length);
   }
 
-  function testOrderedObjectMapOps() {
+  function testOObjectMap() {
     new TestOrderedObjectMap().setup();
     var omap = TestOrderedObjectMap.buildOrderedMapFrom(TestOrderedObjectMap.keys, TestOrderedObjectMap.stringValues);
 
@@ -72,7 +72,7 @@ class TestOrderedMapOps extends utest.Test {
     Assert.equals(0, TestUtils.iteratorToArray(omap.iterator()).length);
   }
 
-  function testOrderedEnumValueMapOps() {
+  function testOEnumValueMap() {
     new TestOrderedEnumValueMap().setup();
     var omap = TestOrderedEnumValueMap.buildOrderedMapFrom(TestOrderedEnumValueMap.keys, TestOrderedEnumValueMap.stringValues);
 
