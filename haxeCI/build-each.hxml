@@ -1,2 +1,4 @@
--main HelloWorld
--cp src
+-main TestAll
+-cp ../src
+-cp ../test
+-lib utest

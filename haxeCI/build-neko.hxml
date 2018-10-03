@@ -1,2 +1,2 @@
 build-each.hxml
--neko bin/HelloWorld.n
+-neko bin/TestAll.n

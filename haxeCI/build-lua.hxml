@@ -1,2 +1,2 @@
 build-each.hxml
--lua bin/HelloWorld.lua
+-lua bin/TestAll.lua
