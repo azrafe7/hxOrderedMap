@@ -115,9 +115,9 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
   }
 
   /**
-    Empties the map (in place).
-
-    Reference to the map stays the same.
+    Empties the map. All key-values are removed.
+    
+    NOTE: references to inner private fields might be invalid.
   **/
   public function clear():Void {
     return this.clear();
