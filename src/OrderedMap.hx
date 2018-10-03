@@ -132,7 +132,7 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
     return this.toString();
   }
 
-  @:arrayAccess @:noCompletion public inline function arrayWrite(k:K, v:V):V {
+  @:arrayAccess inline function arrayWrite(k:K, v:V):V {
     this.set(k, v);
     return v;
   }
