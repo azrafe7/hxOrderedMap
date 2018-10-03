@@ -56,8 +56,6 @@ install:
       export DISPLAY=:99.0;
       export AUDIODEV=null;
       phpenv global 7.0;
-      sh -e /etc/init.d/xvfb start;
-      sleep 3;
     elif [ "${TRAVIS_OS_NAME}" = "osx" ]; then
       brew update;
       brew install mono;
@@ -98,7 +96,6 @@ install:
 script:
 #  - haxe build-interp.hxml
   - haxe build-neko.hxml         && neko bin/TestAll.n
-  - haxe build-flash.hxml -D fdb && haxe flash/run.hxml bin/TestAll.swf
   - haxe build-js.hxml           && node bin/TestAll.js
                                  && haxe phantomjs/run.hxml bin/TestAll.js
   - haxe build-java.hxml         && java -jar bin/TestAll.jar
@@ -107,3 +104,4 @@ script:
   - haxe build-cpp.hxml          && ./bin/TestAll
   - haxe build-python.hxml       && python3 bin/TestAll.py
   - haxe build-lua.hxml          && lua bin/TestAll.lua
+#  - haxe build-flash.hxml -D fdb && haxe flash/run.hxml bin/TestAll.swf
