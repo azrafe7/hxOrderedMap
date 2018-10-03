@@ -13,6 +13,7 @@ dist: trusty
 haxe:
 #  - "3.4.7"
 #  - stable
+  - "4.0.0-preview.4"
   - development
 
 neko: "2.2.0"
@@ -93,14 +94,14 @@ install:
   - haxelib list
 
 script:
-  - haxe build-interp.hxml
+#  - haxe build-interp.hxml
   - haxe build-neko.hxml         && neko bin/TestAll.n
   - haxe build-js.hxml           && node bin/TestAll.js
                                  && haxe phantomjs/run.hxml bin/TestAll.js
-# - haxe build-java.hxml         && java -jar bin/TestAll.jar
-# - haxe build-php.hxml          && php bin/index.php
-# - haxe build-cs.hxml           && mono bin/bin/TestAll.exe
-# - haxe build-flash.hxml -D fdb && haxe flash/run.hxml bin/TestAll.swf
-# - haxe build-cpp.hxml          && ./bin/TestAll
-# - haxe build-python.hxml       && python3 bin/TestAll.py
-# - haxe build-lua.hxml          && lua bin/TestAll.lua
+  - haxe build-java.hxml         && java -jar bin/TestAll.jar
+  - haxe build-php.hxml          && php bin/index.php
+  - haxe build-cs.hxml           && mono bin/bin/TestAll.exe
+  - haxe build-flash.hxml -D fdb && haxe flash/run.hxml bin/TestAll.swf
+  - haxe build-cpp.hxml          && ./bin/TestAll
+  - haxe build-python.hxml       && python3 bin/TestAll.py
+  - haxe build-lua.hxml          && lua bin/TestAll.lua
