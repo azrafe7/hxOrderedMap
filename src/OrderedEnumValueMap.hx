@@ -1,6 +1,15 @@
 import haxe.Constraints.IMap;
 import haxe.ds.EnumValueMap;
 
+/**
+  OrderedEnumValueMap allows mapping of enum value keys to arbitrary values,
+  and remembers the order in which key-values are inserted.
+
+  Keys are compared by value and recursively over their parameters. If any
+  parameter is not an enum value, `Reflect.compare` is used to compare them.
+
+  See `OrderedEnumValueMapImpl` (the actual implementation) and `OrderedMap` for documentation details.
+**/
 @:forward
 @:native("OrderedEnumValueMap")
 abstract OrderedEnumValueMap<K:EnumValue, V>(OrderedEnumValueMapImpl<K, V>) from OrderedEnumValueMapImpl<K, V> {
@@ -9,10 +18,10 @@ abstract OrderedEnumValueMap<K:EnumValue, V>(OrderedEnumValueMapImpl<K, V>) from
     this = new OrderedEnumValueMapImpl<K, V>();
   }
 
-  @:arrayAccess @:noCompletion public inline function _get(key:K)
+  @:arrayAccess inline function _get(key:K)
     return this.get(key);
 
-  @:arrayAccess @:noCompletion public inline function _set(key:K, value:V)
+  @:arrayAccess inline function _set(key:K, value:V)
     return this.set(key, value);
 }
 

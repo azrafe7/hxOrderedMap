@@ -1,6 +1,12 @@
 import haxe.Constraints.IMap;
 import haxe.ds.IntMap;
 
+/**
+  OrderedIntMap allows mapping of Int keys to arbitrary values,
+  and remembers the order in which key-values are inserted.
+
+  See `OrderedIntMapImpl` (the actual implementation) and `OrderedMap` for documentation details.
+**/
 @:forward
 @:native("OrderedIntMap")
 abstract OrderedIntMap<T>(OrderedIntMapImpl<T>) from OrderedIntMapImpl<T> {
@@ -9,10 +15,10 @@ abstract OrderedIntMap<T>(OrderedIntMapImpl<T>) from OrderedIntMapImpl<T> {
     this = new OrderedIntMapImpl<T>();
   }
 
-  @:arrayAccess @:noCompletion public inline function _get(key:Int)
+  @:arrayAccess inline function _get(key:Int)
     return this.get(key);
 
-  @:arrayAccess @:noCompletion public inline function _set(key:Int, value:T)
+  @:arrayAccess inline function _set(key:Int, value:T)
     return this.set(key, value);
 }
 

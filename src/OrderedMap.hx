@@ -1,5 +1,17 @@
 import haxe.Constraints.IMap;
 
+/**
+  OrderedMap allows key to value mapping for arbitrary value types, and many key
+  types.
+
+  This is a multi-type abstract, it is instantiated as one of its
+  specialization types depending on its type parameters.
+
+  An OrderedMap can be instantiated without explicit type parameters. Type inference
+  will then determine the type parameters from the usage.
+
+  OrderedMap is an abstract type, it is not available at runtime.
+**/
 @:multiType(@:followWithAbstracts K)
 @:native("OrderedMap")
 abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
@@ -11,12 +23,10 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
     the output. The rules for that are as follows:
 
     1. if K is a `String`, `OrderedStringMap` is used
-    2. if K is an `Int`, `OrderdIntMap` is used
+    2. if K is an `Int`, `OrderedIntMap` is used
     3. if K is an `EnumValue`, `OrderedEnumValueMap` is used
     4. if K is any other class or structure, `OrderedObjectMap` is used
     5. if K is any other type, it causes a compile-time error
-
-    (Cpp) Map does not use weak keys on ObjectMap by default.
   **/
   public function new();
 
@@ -66,18 +76,14 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
     return this.remove(key);
 
   /**
-    Returns an Iterator over the keys of `this` map.
-
-    The order of keys is undefined.
+    Returns an Iterator over the keys of `this` map in order of insertion.
   **/
   public inline function keys():Iterator<K> {
     return this.keys();
   }
 
   /**
-    Returns an Iterator over the values of `this` map.
-
-    The order of values is undefined.
+    Returns an Iterator over the values of `this` map in order of insertion.
   **/
   public inline function iterator():Iterator<V> {
     return this.iterator();
@@ -86,14 +92,14 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
   /**
     Returns a shallow copy of `this` map.
 
-    The order of values is undefined.
+    Key-values ordering will be preserved.
   **/
   public inline function copy():OrderedMap<K, V> {
     return cast this.copy();
   }
 
   /**
-    Returns a copy of the keys of `this` map in insertion order.
+    Returns a copy of the keys of `this` map in order of insertion.
   **/
   public var orderedKeysCopy(get, never):Array<K>;
 

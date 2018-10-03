@@ -1,6 +1,12 @@
 import haxe.Constraints.IMap;
 import haxe.ds.ObjectMap;
 
+/**
+  OrderedObjectMap allows mapping of object keys to arbitrary values,
+  and remembers the order in which key-values are inserted.
+
+  See `OrderedObjectMapImpl` (the actual implementation) and `OrderedMap` for documentation details.
+**/
 @:forward
 @:native("OrderedObjectMap")
 abstract OrderedObjectMap<K:{}, V>(OrderedObjectMapImpl<K, V>) from OrderedObjectMapImpl<K, V> {
@@ -9,10 +15,10 @@ abstract OrderedObjectMap<K:{}, V>(OrderedObjectMapImpl<K, V>) from OrderedObjec
     this = new OrderedObjectMapImpl<K, V>();
   }
 
-  @:arrayAccess @:noCompletion public inline function _get(key:K)
+  @:arrayAccess inline function _get(key:K)
     return this.get(key);
 
-  @:arrayAccess @:noCompletion public inline function _set(key:K, value:V)
+  @:arrayAccess inline function _set(key:K, value:V)
     return this.set(key, value);
 }
 

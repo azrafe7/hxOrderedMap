@@ -1,6 +1,12 @@
 import haxe.Constraints.IMap;
 import haxe.ds.StringMap;
 
+/**
+  OrderedStringMap allows mapping of String keys to arbitrary values,
+  and remembers the order in which key-values are inserted.
+
+  See `OrderedStringMapImpl` (the actual implementation) and `OrderedMap` for documentation details.
+**/
 @:forward
 @:native("OrderedStringMap")
 abstract OrderedStringMap<T>(OrderedStringMapImpl<T>) from OrderedStringMapImpl<T> {
@@ -9,10 +15,10 @@ abstract OrderedStringMap<T>(OrderedStringMapImpl<T>) from OrderedStringMapImpl<
     this = new OrderedStringMapImpl<T>();
   }
 
-  @:arrayAccess @:noCompletion public inline function _get(key:String)
+  @:arrayAccess inline function _get(key:String)
     return this.get(key);
 
-  @:arrayAccess @:noCompletion public inline function _set(key:String, value:T)
+  @:arrayAccess inline function _set(key:String, value:T)
     return this.set(key, value);
 }
 
