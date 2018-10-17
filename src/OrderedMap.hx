@@ -116,7 +116,7 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
 
   /**
     Empties the map. All key-values are removed.
-    
+
     NOTE: references to inner private fields might be invalid.
   **/
   public function clear():Void {
@@ -145,7 +145,7 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
     return new OrderedIntMap<V>();
   }
 
-  @:to static inline function toOrderedEnumValueMapMap<K:EnumValue, V>(t:IOrderedMap<K, V>):OrderedEnumValueMap<K, V> {
+  @:to static inline function toOrderedEnumValueMap<K:EnumValue, V>(t:IOrderedMap<K, V>):OrderedEnumValueMap<K, V> {
     return new OrderedEnumValueMap<K, V>();
   }
 
