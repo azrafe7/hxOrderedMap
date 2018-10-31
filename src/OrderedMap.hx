@@ -119,7 +119,7 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
 
     NOTE: references to inner private fields might be invalid.
   **/
-  public function clear():Void {
+  public inline function clear():Void {
     return this.clear();
   }
 
