@@ -1,3 +1,10 @@
+/**
+  ReadOnlyMap is an abstract over Map that only exposes methods
+  that don't modify the Map instance.
+
+  NOTE: this doesn't necessarily mean that the instance is immutable.
+  Because other code holding the reference as ordinary Map can still modify it.
+**/
 @:forward(exists, keys, iterator, copy, toString)
 abstract ReadOnlyMap<K, V>(Map<K, V>) from Map<K, V> {
 
