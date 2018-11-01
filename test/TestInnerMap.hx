@@ -7,6 +7,11 @@ class TestInnerMap extends utest.Test {
     super();
   }
 
+  public function _testMap<K, V>(map:Map<K,V>, k:K, v:V) {
+    map.set(k, v);
+    Assert.equals(v, map.get(k));
+  }
+
   function testOStringMap() {
     new TestOrderedStringMap().setup();
     var omap = TestOrderedStringMap.buildOrderedMapFrom(TestOrderedStringMap.keys, TestOrderedStringMap.stringValues);
@@ -35,6 +40,8 @@ class TestInnerMap extends utest.Test {
     Assert.raises(function() {
       omap.getInnerMap()[newKey] = newValue;
     });
+
+    _testMap(cast map, newKey, "newer value for string key");
   }
 
   function testOIntMap() {
@@ -65,6 +72,8 @@ class TestInnerMap extends utest.Test {
     Assert.raises(function() {
       omap.getInnerMap()[newKey] = newValue;
     });
+
+    _testMap(cast map, newKey, "newer value for int key");
   }
 
   function testOObjectMap() {
@@ -95,6 +104,8 @@ class TestInnerMap extends utest.Test {
     Assert.raises(function() {
       omap.getInnerMap()[newKey] = newValue;
     });
+
+    _testMap(cast map, newKey, "newer value for obj key");
   }
 
   function testOEnumValueMap() {
@@ -125,5 +136,7 @@ class TestInnerMap extends utest.Test {
     Assert.raises(function() {
       omap.getInnerMap()[newKey] = newValue;
     });
+
+    _testMap(cast map, newKey, "newer value for enum key");
   }
 }
