@@ -6,12 +6,15 @@ class TestAsPlainMap extends utest.Test {
     super();
   }
 
-  function _testAsMap<K, V>(map:Map<K, V>, omap:OrderedMap<K, V>) {
+  function testOStringMap() {
+    new TestOrderedStringMap().setup();
+    var omap = TestOrderedStringMap.buildOrderedMapFrom(TestOrderedStringMap.keys, TestOrderedStringMap.stringValues);
+
+    var map = omap.getInnerMap();
     var orderedKeys = TestUtils.iteratorToArray(omap.keys());
     var defaultKeys = TestUtils.iteratorToArray(omap.getInnerMap().keys());
 
-    trace(map);
-    trace(omap);
+    /* testAsMap */
     Assert.notEquals(map, omap);
     Assert.equals(defaultKeys.length, orderedKeys.length);
     for (k in defaultKeys) {
@@ -22,21 +25,16 @@ class TestAsPlainMap extends utest.Test {
       Assert.contains(k, defaultKeys);
       Assert.equals(omap[k], map[k]);
     }
-  }
-
-  function testOStringMap() {
-    new TestOrderedStringMap().setup();
-    var omap = TestOrderedStringMap.buildOrderedMapFrom(TestOrderedStringMap.keys, TestOrderedStringMap.stringValues);
-
-    var map = omap.getInnerMap();
-    _testAsMap(map, omap);
 
     var newKey = "newKey";
     var newValue = "newValue";
-    omap.getInnerMap()[newKey] = newValue;
-    Assert.isTrue(map.exists(newKey) && omap.exists(newKey));
-    Assert.notContains(newKey, omap.keysCopy());
-    Assert.contains(newKey, [for (k in map.keys()) k]);
+    omap[newKey] = newValue;
+    Assert.isTrue(map.exists(newKey));
+
+    /* cannot modify read-only inner map */
+    Assert.raises(function() {
+      omap.getInnerMap()[newKey] = newValue;
+    });
   }
 
   /*
