@@ -123,7 +123,7 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
     return this.clear();
   }
 
-  public inline function getInnerMap<K, V>():Map<K, V> {
+  public inline function getInnerMap<K, V>():ReadOnlyMap<K, V> {
     return @:privateAccess (cast this).map;
   }
 
