@@ -124,17 +124,18 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
   /**
     Empties the map. All key-values are removed.
 
-    NOTE: references to inner private fields might be invalid.
+    NOTE: A new *inner* map is constructed (and the old one released),
+    so previous references to it may be invalid.
   **/
   public inline function clear():Void {
     return this.clear();
   }
 
   /**
-    Return the inner map as a ReadOnlyMap.
+    Returns the inner map as a ReadOnlyMap.
 
     NOTE: it's not a copy, so altering it (via casting it to Map, for example),
-    may invalidate the state of the OrderedMap that wraps it.
+    invalidates the state of the OrderedMap that wraps it.
    */
   public inline function getInnerMap<K, V>():ReadOnlyMap<K, V> {
     // @formatter:off
