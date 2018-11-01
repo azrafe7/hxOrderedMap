@@ -123,6 +123,10 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
     return this.clear();
   }
 
+  public inline function getInnerMap<K, V>():Map<K, V> {
+    return @:privateAccess (cast this).map;
+  }
+
   /**
     Returns a String representation of `this` map.
 

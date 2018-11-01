@@ -20,6 +20,7 @@ class TestAll {
       new TestOrderedMapCloning(),
       new TestOrderedMapOps(),
       new TestOrderedMapExtraOps(),
+      new TestAsPlainMap(),
     ]);
   }
 }
