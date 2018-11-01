@@ -1,9 +1,9 @@
 import haxe.Constraints.IMap;
 
-interface IOrderedMap<K, V> #if !(cpp || hl) extends IMap<K, V> #end {
+interface IOrderedMap<K, V> #if (force_extend_imap || (!force_extend_imap && !(cpp))) extends IMap<K, V> #end {
 
 // see https://github.com/azrafe7/hxOrderedMap/issues/2
-#if (cpp || hl)
+#if (!force_extend_imap || (!force_extend_imap && (cpp)))
   /* IMap */
   function get(k:K):Null<V>;
   function set(k:K, v:V):Void;
