@@ -5,6 +5,16 @@ class TestOrderedIntMap extends utest.Test {
   static public var keys:Array<Int>;
   static public var stringValues:Array<String>;
 
+  public function setup() {
+    // trace("-- SETUP");
+    keys = [0, 1, 2, 3, 4, 5, 6];
+    stringValues = [for (i in 0...keys.length) Std.string(i)];
+
+    // trace("ORDERED_MAP  : " + buildOrderedMapFrom(keys, stringValues));
+    // trace("DEFAULT_MAP  : " + buildMapFrom(keys, stringValues));
+    // trace("-- END SETUP");
+  }
+
   public function new() {
     super();
   }
@@ -33,16 +43,6 @@ class TestOrderedIntMap extends utest.Test {
     }
 
     return map;
-  }
-
-  public function setup() {
-    // trace("-- SETUP");
-    keys = [0, 1, 2, 3, 4, 5, 6];
-    stringValues = [for (i in 0...keys.length) Std.string(i)];
-
-    // trace("ORDERED_MAP  : " + buildOrderedMapFrom(keys, stringValues));
-    // trace("DEFAULT_MAP  : " + buildMapFrom(keys, stringValues));
-    // trace("-- END SETUP");
   }
 
   function testOrderAndLength() {

@@ -1,5 +1,8 @@
 {
   "disableFormatting": false,
+  "excludes": [
+    "IOrderedMap.hx"
+  ],
   "emptyLines": {
     "abstractEmptyLines": {
       "beginType": 1
