@@ -124,7 +124,9 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
   }
 
   public inline function getInnerMap<K, V>():ReadOnlyMap<K, V> {
+    // @formatter:off
     return @:privateAccess (cast this).map;
+    // @formatter:on
   }
 
   /**
