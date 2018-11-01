@@ -11,6 +11,7 @@ class TestUtils {
   }
 
   public static function detectedTarget():String {
+  // @formatter:off
     return
     #if eval
       EVAL;
@@ -39,6 +40,7 @@ class TestUtils {
     #else
       UNKNOWN;
     #end
+  // @formatter:on
   }
 }
 

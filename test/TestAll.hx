@@ -28,5 +28,4 @@ class TestAll {
       new TestInnerMap(),
     ]);
   }
-
 }
