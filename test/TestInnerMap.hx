@@ -7,7 +7,7 @@ class TestInnerMap extends utest.Test {
     super();
   }
 
-  public function _testMap<K, V>(map:Map<K,V>, k:K, v:V) {
+  public function _testMap<K, V>(map:Map<K, V>, k:K, v:V) {
     map.set(k, v);
     Assert.equals(v, map.get(k));
   }
@@ -95,7 +95,7 @@ class TestInnerMap extends utest.Test {
       Assert.equals(omap[k], map[k]);
     }
 
-    var newKey = {name:"newKey"};
+    var newKey = {name: "newKey"};
     var newValue = "newValue";
     omap[newKey] = newValue;
     Assert.isTrue(map.exists(newKey));

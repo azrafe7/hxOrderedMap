@@ -37,7 +37,7 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
 
     If `key` is null, the result is unspecified.
   **/
-  public inline function set(key:K, value:V)
+  public inline function set(key:K, value:V):Void
     this.set(key, value);
 
   /**
@@ -55,7 +55,7 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
 
     If `key` is null, the result is unspecified.
   **/
-  @:arrayAccess public inline function get(key:K)
+  @:arrayAccess public inline function get(key:K):Null<V>
     return this.get(key);
 
   /**
@@ -63,7 +63,7 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
 
     If `key` is null, the result is unspecified.
   **/
-  public inline function exists(key:K)
+  public inline function exists(key:K):Bool
     return this.exists(key);
 
   /**
@@ -72,7 +72,7 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
 
     If `key` is null, the result is unspecified.
   **/
-  public inline function remove(key:K)
+  public inline function remove(key:K):Bool
     return this.remove(key);
 
   /**
