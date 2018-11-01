@@ -18,11 +18,13 @@ abstract OrderedEnumValueMap<K:EnumValue, V>(OrderedEnumValueMapImpl<K, V>) from
     this = new OrderedEnumValueMapImpl<K, V>();
   }
 
-  @:arrayAccess inline function _get(key:K)
+  @:arrayAccess inline function _get(key:K):Null<V>
     return this.get(key);
 
-  @:arrayAccess inline function _set(key:K, value:V)
-    return this.set(key, value);
+  @:arrayAccess inline function _set(key:K, value:V):V {
+    this.set(key, value);
+    return value;
+  }
 }
 
 class OrderedEnumValueMapImpl<K:EnumValue, V> implements IOrderedMap<K, V> {

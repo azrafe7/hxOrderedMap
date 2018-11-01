@@ -18,8 +18,10 @@ abstract OrderedIntMap<T>(OrderedIntMapImpl<T>) from OrderedIntMapImpl<T> {
   @:arrayAccess inline function _get(key:Int)
     return this.get(key);
 
-  @:arrayAccess inline function _set(key:Int, value:T)
-    return this.set(key, value);
+  @:arrayAccess inline function _set(key:Int, value:T):T {
+    this.set(key, value);
+    return value;
+  }
 }
 
 class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {

@@ -18,8 +18,10 @@ abstract OrderedStringMap<T>(OrderedStringMapImpl<T>) from OrderedStringMapImpl<
   @:arrayAccess inline function _get(key:String)
     return this.get(key);
 
-  @:arrayAccess inline function _set(key:String, value:T)
-    return this.set(key, value);
+  @:arrayAccess inline function _set(key:String, value:T):T {
+    this.set(key, value);
+    return value;
+  }
 }
 
 class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {

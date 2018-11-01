@@ -18,8 +18,10 @@ abstract OrderedObjectMap<K:{}, V>(OrderedObjectMapImpl<K, V>) from OrderedObjec
   @:arrayAccess inline function _get(key:K)
     return this.get(key);
 
-  @:arrayAccess inline function _set(key:K, value:V)
-    return this.set(key, value);
+  @:arrayAccess inline function _set(key:K, value:V):V {
+    this.set(key, value);
+    return value;
+  }
 }
 
 class OrderedObjectMapImpl<K:{}, V> implements IOrderedMap<K, V> {
