@@ -12,6 +12,11 @@ import OrderedEnumValueMap;
 class TestAll {
 
   public static function main() {
+    var target = TestUtils.detectedTarget().toUpperCase();
+    var forceExtendIMap = #if force_extend_imap true #else false #end;
+    trace("DETECTED TARGET  : " + target);
+    trace("FORCE_EXTEND_IMAP: " + forceExtendIMap + "\n");
+
     utest.UTest.run([
       new TestOrderedStringMap(),
       new TestOrderedIntMap(),
@@ -23,4 +28,5 @@ class TestAll {
       new TestInnerMap(),
     ]);
   }
+
 }
