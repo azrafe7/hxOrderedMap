@@ -1,7 +1,9 @@
 import haxe.Constraints.IMap;
 
-interface IOrderedMap<K, V> /*extends IMap<K, V>*/ {
+interface IOrderedMap<K, V> #if (1) extends IMap<K, V> #end {
 
+// see https://github.com/azrafe7/hxOrderedMap/issues/2
+#if (0)
   /* IMap */
   function get(k:K):Null<V>;
   function set(k:K, v:V):Void;
@@ -10,7 +12,8 @@ interface IOrderedMap<K, V> /*extends IMap<K, V>*/ {
   function keys():Iterator<K>;
   function iterator():Iterator<V>;
   function copy():IOrderedMap<K, V>;
-  function toString():String;
+  function toString():String;*/
+#end
 
   /* IOrderedMap */
   var length(get, null):Int;
