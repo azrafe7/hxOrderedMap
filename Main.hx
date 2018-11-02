@@ -9,7 +9,7 @@ class Main {
 
   static function main() {
     var keys = ["1", "apple", "banana", "orange", "one", "two", "three"];
-    var values = keys.copy();
+    var values = [for (i in 0...keys.length) i];
 
     var omap = new OrderedMap();
     var map = new Map();
