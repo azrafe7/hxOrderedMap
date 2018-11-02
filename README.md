@@ -1,14 +1,14 @@
 hxOrderedMap
 ==========================================
 
-hxperimental implementation of ordered maps for Haxe 4.0+ (wrapping haxe.ds.Map)
+Hxperimental implementation of ordered maps for Haxe 4.0+ (wrapping haxe.ds.Map).
 
 
 ## Overview
 
-This is a multi-type abstract that wraps `haxe.ds.Map` and can be used with same API.
+This is a multi-type abstract that wraps `haxe.ds.Map` and can be used with the same API.
 
-It also adds a few methods (mainly `length`, `keysCopy()`, `clear()`).
+It also adds a few methods (like `length`, `keysCopy()`, `clear()`).
 
 The main difference with Map is that the order of insertion is preserved when iterated.
 
@@ -37,15 +37,15 @@ trace("UNORDERED: " + map);  // may be  {orange => 3, three => 6, apple => 1, ba
 
 ## Notes
 
-Book-keeping to maintain the order of insertion makes using this lib a bit slower than using a Map directly
+Internal book-keeping to maintain the order of insertion makes using this lib a bit slower than using a Map directly
 (approximately 1.5-2x slower). 
 
-Retrieving some information about an OrderedMap instance may be faster for the same reason 
+But retrieving some information about an OrderedMap instance is faster for the same reason 
 (like getting the number of key-values, a copy of the keys, or clearing the map).
 
 Hence this is not indended as a replacement for `haxe.ds.Map`, but it can be useful in some situations.
 
 
-## License
+## License (MIT)
 
 See [LICENSE](LICENSE).
