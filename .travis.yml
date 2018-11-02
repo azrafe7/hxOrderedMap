@@ -94,7 +94,7 @@ install:
   - haxelib list
 
 script:
-#  - haxe build-interp.hxml
+  - haxe build-interp.hxml
   - haxe build-neko.hxml         && neko bin/TestAll.n
   - haxe build-js.hxml           && node bin/TestAll.js
                                  && haxe phantomjs/run.hxml bin/TestAll.js
