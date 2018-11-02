@@ -42,6 +42,16 @@ class TestUtils {
     #end
   // @formatter:on
   }
+
+  static public macro function getDefines():haxe.macro.Expr {
+    var defines:Map<String, String> = haxe.macro.Context.getDefines();
+    var buffer = new StringBuf();
+    for (key in defines.keys()) {
+      var keyValue = ('  ' + key + '="' + Std.string(defines.get(key)) + '"\n');
+      buffer.add(keyValue);
+    }
+    return macro $v{buffer.toString()};
+  }
 }
 
 @:enum abstract TargetType(String) to String {
