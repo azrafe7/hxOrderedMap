@@ -27,6 +27,7 @@ class TestAll {
       new TestOrderedMapOps(),
       new TestOrderedMapExtraOps(),
       new TestInnerMap(),
+      new TestKeyValueIterator(),
     ]);
   }
 }
