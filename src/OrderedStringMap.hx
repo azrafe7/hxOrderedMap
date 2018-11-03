@@ -83,6 +83,13 @@ class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
   }
 
   /**
+    See `OrderedMap.keyValueIterator`
+  **/
+  public inline function keyValueIterator():KeyValueIterator<String, T> {
+    return new haxe.iterators.MapKeyValueIterator(this);
+  }
+
+  /**
     See `OrderedMap.copy`
   **/
   public function copy():OrderedStringMapImpl<T> {

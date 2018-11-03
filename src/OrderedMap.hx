@@ -97,6 +97,13 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
   }
 
   /**
+    Returns an Iterator over the keys and values of `this` Map in order of insertion.
+  **/
+  public inline function keyValueIterator():KeyValueIterator<K, V> {
+    return this.keyValueIterator();
+  }
+
+  /**
     Returns a shallow copy of `this` map.
 
     Key-values ordering will be preserved.

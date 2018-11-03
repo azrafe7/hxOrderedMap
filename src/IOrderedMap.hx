@@ -11,6 +11,7 @@ interface IOrderedMap<K, V> #if (force_extend_imap || (!force_extend_imap && !(c
   function remove(k:K):Bool;
   function keys():Iterator<K>;
   function iterator():Iterator<V>;
+  function keyValueIterator():KeyValueIterator<K, V>;
   function copy():IOrderedMap<K, V>;
   function toString():String;
 #end

@@ -83,6 +83,13 @@ class OrderedObjectMapImpl<K:{}, V> implements IOrderedMap<K, V> {
   }
 
   /**
+    See `OrderedMap.keyValueIterator`
+  **/
+  public inline function keyValueIterator():KeyValueIterator<K, V> {
+    return new haxe.iterators.MapKeyValueIterator(this);
+  }
+
+  /**
     See `OrderedMap.copy`
   **/
   public function copy():OrderedObjectMapImpl<K, V> {

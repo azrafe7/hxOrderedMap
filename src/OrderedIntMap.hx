@@ -83,6 +83,13 @@ class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
   }
 
   /**
+    See `OrderedMap.keyValueIterator`
+  **/
+  public inline function keyValueIterator():KeyValueIterator<Int, T> {
+    return new haxe.iterators.MapKeyValueIterator(this);
+  }
+
+  /**
     See `OrderedMap.copy`
   **/
   public function copy():OrderedIntMapImpl<T> {
