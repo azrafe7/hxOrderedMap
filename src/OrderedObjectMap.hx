@@ -47,14 +47,14 @@ class OrderedObjectMapImpl<K:{}, V> implements IOrderedMap<K, V> {
   /**
     See `OrderedMap.get`
   **/
-  inline public function get(key:K):Null<V> {
+  public inline function get(key:K):Null<V> {
     return map.get(key);
   }
 
   /**
     See `OrderedMap.exists`
   **/
-  inline public function exists(key:K):Bool {
+  public inline function exists(key:K):Bool {
     return map.exists(key);
   }
 
@@ -71,14 +71,14 @@ class OrderedObjectMapImpl<K:{}, V> implements IOrderedMap<K, V> {
   /**
     See `OrderedMap.keys`
   **/
-  inline public function keys():Iterator<K> {
+  public inline function keys():Iterator<K> {
     return orderedKeys.copy().iterator();
   }
 
   /**
     See `OrderedMap.iterator`
   **/
-  inline public function iterator():Iterator<V> {
+  public inline function iterator():Iterator<V> {
     return new OrderedObjectMapIterator(this);
   }
 
@@ -144,15 +144,15 @@ private class OrderedObjectMapIterator<K:{}, V> {
   var map:OrderedObjectMap<K, V>;
   var index:Int = 0;
 
-  inline public function new(omap:OrderedObjectMap<K, V>) {
+  public inline function new(omap:OrderedObjectMap<K, V>) {
     map = omap;
   }
 
-  inline public function hasNext():Bool {
+  public inline function hasNext():Bool {
     return index < map.orderedKeys.length;
   }
 
-  inline public function next():V {
+  public inline function next():V {
     return map.get(map.orderedKeys[index++]);
   }
 }

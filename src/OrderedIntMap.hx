@@ -47,14 +47,14 @@ class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
   /**
     See `OrderedMap.get`
   **/
-  inline public function get(key:Int):Null<T> {
+  public inline function get(key:Int):Null<T> {
     return map.get(key);
   }
 
   /**
     See `OrderedMap.exists`
   **/
-  inline public function exists(key:Int):Bool {
+  public inline function exists(key:Int):Bool {
     return map.exists(key);
   }
 
@@ -71,14 +71,14 @@ class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
   /**
     See `OrderedMap.keys`
   **/
-  inline public function keys():Iterator<Int> {
+  public inline function keys():Iterator<Int> {
     return orderedKeys.copy().iterator();
   }
 
   /**
     See `OrderedMap.iterator`
   **/
-  inline public function iterator():Iterator<T> {
+  public inline function iterator():Iterator<T> {
     return new OrderedIntMapIterator(this);
   }
 
@@ -144,15 +144,15 @@ private class OrderedIntMapIterator<V> {
   var map:OrderedIntMap<V>;
   var index:Int = 0;
 
-  inline public function new(omap:OrderedIntMap<V>) {
+  public inline function new(omap:OrderedIntMap<V>) {
     map = omap;
   }
 
-  inline public function hasNext():Bool {
+  public inline function hasNext():Bool {
     return index < map.orderedKeys.length;
   }
 
-  inline public function next():V {
+  public inline function next():V {
     return map.get(map.orderedKeys[index++]);
   }
 }
