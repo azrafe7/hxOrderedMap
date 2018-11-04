@@ -1,6 +1,3 @@
-import IOrderedMap;
-import OrderedMap;
-import OrderedStringMap;
 
 class TestAll {
 

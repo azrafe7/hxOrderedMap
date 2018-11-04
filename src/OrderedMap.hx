@@ -1,4 +1,3 @@
-import haxe.Constraints.IMap;
 
 @:multiType(@:followWithAbstracts K)
 abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
