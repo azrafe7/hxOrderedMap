@@ -21,7 +21,7 @@ neko: "2.2.0"
 matrix:
   # Allow Haxe development to fail.
   allow_failures:
-    - haxe: development
+#    - haxe: development
 
 addons:
   # This is the preferred way to install apt packages.
