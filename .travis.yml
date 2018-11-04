@@ -13,8 +13,8 @@ dist: trusty
 haxe:
 #  - "3.4.7"
 #  - stable
-  - "4.0.0-preview.4"
-#  - development
+#  - "4.0.0-preview.4"
+  - development
 
 neko: "2.2.0"
 
