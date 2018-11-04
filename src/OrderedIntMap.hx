@@ -72,7 +72,13 @@ class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
     See `OrderedMap.keys`
   **/
   public inline function keys():Iterator<Int> {
+    // see https://github.com/HaxeFoundation/haxe/issues/7590
+    #if php
+    var clonedKeys = orderedKeys.copy();
+    return clonedKeys.iterator();
+    #else
     return orderedKeys.copy().iterator();
+    #end
   }
 
   /**

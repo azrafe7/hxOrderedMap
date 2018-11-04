@@ -72,7 +72,13 @@ class OrderedObjectMapImpl<K:{}, V> implements IOrderedMap<K, V> {
     See `OrderedMap.keys`
   **/
   public inline function keys():Iterator<K> {
+    // see https://github.com/HaxeFoundation/haxe/issues/7590
+    #if php
+    var clonedKeys = orderedKeys.copy();
+    return clonedKeys.iterator();
+    #else
     return orderedKeys.copy().iterator();
+    #end
   }
 
   /**
