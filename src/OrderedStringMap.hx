@@ -18,10 +18,10 @@ abstract OrderedStringMap<T>(OrderedStringMapImpl<T>) from OrderedStringMapImpl<
   @:arrayAccess inline function _get(key:String)
     return this.get(key);
 
-  @:arrayAccess inline function _set(key:String, value:T):T {
-    this.set(key, value);
-    return value;
-  }
+  //@:arrayAccess inline function _set(key:String, value:T):T {
+  //  this.set(key, value);
+  //  return value;
+  //}
 }
 
 class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
@@ -103,30 +103,6 @@ class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
     for (k in orderedKeys)
       clone.set(k, map.get(k));
     return clone;
-  }
-
-  /**
-    See `OrderedMap.keysCopy`
-  **/
-  public inline function keysCopy():Array<String> {
-    return orderedKeys.copy();
-  }
-
-  /**
-    See `OrderedMap.length`
-  **/
-  public var length(get, never):Int;
-
-  inline function get_length():Int {
-    return orderedKeys.length;
-  }
-
-  /**
-    See `OrderedMap.clear`
-  **/
-  public function clear():Void {
-    orderedKeys = [];
-    map = new StringMap();
   }
 
   /**

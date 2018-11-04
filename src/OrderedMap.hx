@@ -81,11 +81,7 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
   public inline function keys():Iterator<K> {
   // @formatter:off
   // see https://github.com/azrafe7/hxOrderedMap/issues/2#issuecomment-435195303
-  #if cs
     return (cast this).keys();
-  #else
-    return this.keys();
-  #end
   // @formatter:on
   }
 
@@ -110,44 +106,6 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
   **/
   public inline function copy():OrderedMap<K, V> {
     return cast this.copy();
-  }
-
-  /**
-    Returns a copy of the keys of `this` map in order of insertion.
-  **/
-  public inline function keysCopy():Array<K> {
-    return this.keysCopy();
-  }
-
-  /**
-    Returns the number of key-values in `this` map.
-  **/
-  public var length(get, never):Int;
-
-  inline function get_length():Int {
-    return this.length;
-  }
-
-  /**
-    Empties the map. All key-values are removed.
-
-    NOTE: A new *inner* map and orderedKeys array are constructed,
-    so previous references to them are invalid.
-  **/
-  public inline function clear():Void {
-    return this.clear();
-  }
-
-  /**
-    Returns the inner map as a ReadOnlyMap.
-
-    NOTE: it's not a copy, so altering it (via casting it to Map, for example),
-    invalidates the state of the OrderedMap that wraps it.
-   */
-  public inline function getInnerMap<K, V>():ReadOnlyMap<K, V> {
-    // @formatter:off
-    return @:privateAccess (cast this).map;
-    // @formatter:on
   }
 
   /**
