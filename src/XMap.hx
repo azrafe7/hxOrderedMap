@@ -1,6 +1,6 @@
 
 @:multiType(@:followWithAbstracts K)
-abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
+abstract XMap<K, V>(IXMap<K, V>) {
 
   public function new();
 
@@ -28,7 +28,7 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
     return this.keyValueIterator();
   }
 
-  public inline function copy():OrderedMap<K, V> {
+  public inline function copy():XMap<K, V> {
     return cast this.copy();
   }
 
@@ -41,11 +41,11 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
     return v;
   }
 
-  @:to static inline function toOrderedStringMap<K:String, V>(t:IOrderedMap<K, V>):OrderedStringMap<V> {
-    return new OrderedStringMap<V>();
+  @:to static inline function toXStringMap<K:String, V>(t:IXMap<K, V>):XStringMap<V> {
+    return new XStringMap<V>();
   }
 
-  @:from static inline function fromOrderedStringMap<V>(map:OrderedStringMap<V>):OrderedMap<String, V> {
+  @:from static inline function fromXStringMap<V>(map:XStringMap<V>):XMap<String, V> {
     return cast map;
   }
 }

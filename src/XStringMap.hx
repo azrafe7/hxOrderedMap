@@ -1,6 +1,6 @@
 import haxe.ds.StringMap;
 
-class OrderedStringMap<T> implements IOrderedMap<String, T> {
+class XStringMap<T> implements IXMap<String, T> {
 
   var map:StringMap<T> = new StringMap();
 
@@ -34,8 +34,8 @@ class OrderedStringMap<T> implements IOrderedMap<String, T> {
     return new haxe.iterators.MapKeyValueIterator(this);
   }
 
-  public function copy():OrderedStringMap<T> {
-    var clone = new OrderedStringMap();
+  public function copy():XStringMap<T> {
+    var clone = new XStringMap();
     clone.map = map.copy();
     return clone;
   }

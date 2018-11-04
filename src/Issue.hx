@@ -1,5 +1,5 @@
 
-class TestAll {
+class Issue {
 
   public static function main() {
 
