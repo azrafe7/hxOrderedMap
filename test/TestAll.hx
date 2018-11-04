@@ -5,9 +5,6 @@ import utest.Assert;
 import IOrderedMap;
 import OrderedMap;
 import OrderedStringMap;
-import OrderedIntMap;
-import OrderedObjectMap;
-import OrderedEnumValueMap;
 
 class TestAll {
 
@@ -20,14 +17,11 @@ class TestAll {
 
     utest.UTest.run([
       new TestOrderedStringMap(),
-      new TestOrderedIntMap(),
-      new TestOrderedObjectMap(),
-      new TestOrderedEnumValueMap(),
-      new TestOrderedMapCloning(),
-      new TestOrderedMapOps(),
-      new TestOrderedMapExtraOps(),
-      new TestInnerMap(),
-      new TestKeyValueIterator(),
+      //new TestOrderedMapCloning(),
+      //new TestOrderedMapOps(),
+      //new TestOrderedMapExtraOps(),
+      //new TestInnerMap(),
+      //new TestKeyValueIterator(),
     ]);
   }
 }
