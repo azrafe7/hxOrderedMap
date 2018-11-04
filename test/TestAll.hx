@@ -8,5 +8,7 @@ class TestAll {
 
     var omap = new OrderedMap();
     omap["1"] = "one";
+
+    trace(omap);
   }
 }
