@@ -1,33 +1,8 @@
 import haxe.Constraints.IMap;
 import haxe.ds.StringMap;
 
-/**
-  OrderedStringMap allows mapping of String keys to arbitrary values,
-  and remembers the order in which key-values are inserted.
+class OrderedStringMap<T> implements IOrderedMap<String, T> {
 
-  See `OrderedStringMapImpl` (the actual implementation) and `OrderedMap` for documentation details.
-**/
-@:forward
-@:native("OrderedStringMap")
-abstract OrderedStringMap<T>(OrderedStringMapImpl<T>) from OrderedStringMapImpl<T> {
-
-  public inline function new() {
-    this = new OrderedStringMapImpl<T>();
-  }
-
-  @:arrayAccess inline function _get(key:String)
-    return this.get(key);
-
-  //@:arrayAccess inline function _set(key:String, value:T):T {
-  //  this.set(key, value);
-  //  return value;
-  //}
-}
-
-class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
-
-  @:allow(OrderedStringMapIterator)
-  var orderedKeys:Array<String> = [];
   var map:StringMap<T> = new StringMap();
 
   /**
@@ -39,8 +14,6 @@ class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
     See `OrderedMap.set`
   **/
   public function set(key:String, value:T):Void {
-    if (!map.exists(key))
-      orderedKeys.push(key);
     map.set(key, value);
   }
 
@@ -62,30 +35,21 @@ class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
     See `OrderedMap.remove`
   **/
   public function remove(key:String):Bool {
-    var removed = map.remove(key);
-    if (removed)
-      orderedKeys.remove(key);
-    return removed;
+    return map.remove(key);
   }
 
   /**
     See `OrderedMap.keys`
   **/
   public inline function keys():Iterator<String> {
-    // see https://github.com/HaxeFoundation/haxe/issues/7590
-    #if php
-    var clonedKeys = orderedKeys.copy();
-    return clonedKeys.iterator();
-    #else
-    return orderedKeys.copy().iterator();
-    #end
+    return map.keys();
   }
 
   /**
     See `OrderedMap.iterator`
   **/
   public inline function iterator():Iterator<T> {
-    return new OrderedStringMapIterator(this);
+    return map.iterator();
   }
 
   /**
@@ -98,10 +62,9 @@ class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
   /**
     See `OrderedMap.copy`
   **/
-  public function copy():OrderedStringMapImpl<T> {
-    var clone = new OrderedStringMapImpl<T>();
-    for (k in orderedKeys)
-      clone.set(k, map.get(k));
+  public function copy():OrderedStringMap<T> {
+    var clone = new OrderedStringMap();
+    clone.map = map.copy();
     return clone;
   }
 
@@ -109,32 +72,6 @@ class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
     See `OrderedMap.toString`
   **/
   public function toString():String {
-    var k:String;
-    var len = orderedKeys.length;
-    var str = "[";
-    for (i in 0...len) {
-      k = orderedKeys[i];
-      str += k + " => " + map.get(k) + (i != len - 1 ? ", " : "");
-    }
-    return str + "]";
-  }
-}
-
-@:native("OrderedStringMapIterator")
-private class OrderedStringMapIterator<V> {
-
-  var map:OrderedStringMap<V>;
-  var index:Int = 0;
-
-  public inline function new(omap:OrderedStringMap<V>) {
-    map = omap;
-  }
-
-  public inline function hasNext():Bool {
-    return index < map.orderedKeys.length;
-  }
-
-  public inline function next():V {
-    return map.get(map.orderedKeys[index++]);
+    return map.toString();
   }
 }
