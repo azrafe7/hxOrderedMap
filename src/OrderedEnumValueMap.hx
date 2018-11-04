@@ -122,7 +122,7 @@ class OrderedEnumValueMapImpl<K:EnumValue, V> implements IOrderedMap<K, V> {
     See `OrderedMap.clear`
   **/
   public function clear():Void {
-    orderedKeys.resize(0);
+    orderedKeys = [];
     map = new EnumValueMap();
   }
 

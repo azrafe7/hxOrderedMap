@@ -119,7 +119,7 @@ class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
     See `OrderedMap.clear`
   **/
   public function clear():Void {
-    orderedKeys.resize(0);
+    orderedKeys = [];
     map = new StringMap();
   }
 

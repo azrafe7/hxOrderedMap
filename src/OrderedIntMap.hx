@@ -119,7 +119,7 @@ class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
     See `OrderedMap.clear`
   **/
   public function clear():Void {
-    orderedKeys.resize(0);
+    orderedKeys = [];
     map = new IntMap();
   }
 

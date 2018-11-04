@@ -131,8 +131,8 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
   /**
     Empties the map. All key-values are removed.
 
-    NOTE: A new *inner* map is constructed (and the old one released),
-    so previous references to it may be invalid.
+    NOTE: A new *inner* map and orderedKeys array are constructed,
+    so previous references to them are invalid.
   **/
   public inline function clear():Void {
     return this.clear();
