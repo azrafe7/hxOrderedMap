@@ -92,7 +92,11 @@ class OrderedObjectMapImpl<K:{}, V> implements IOrderedMap<K, V> {
     See `OrderedMap.keyValueIterator`
   **/
   public inline function keyValueIterator():KeyValueIterator<K, V> {
+  #if cpp
+    return throw "OrderedObjectMap.KeyValueIterator not yet implemented for cpp.";
+  #else
     return new haxe.iterators.MapKeyValueIterator(this);
+  #end
   }
 
   /**

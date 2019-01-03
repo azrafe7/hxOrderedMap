@@ -92,7 +92,11 @@ class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
     See `OrderedMap.keyValueIterator`
   **/
   public inline function keyValueIterator():KeyValueIterator<Int, T> {
+  #if cpp
+    return throw "OrderedIntMap.KeyValueIterator not yet implemented for cpp.";
+  #else
     return new haxe.iterators.MapKeyValueIterator(this);
+  #end
   }
 
   /**

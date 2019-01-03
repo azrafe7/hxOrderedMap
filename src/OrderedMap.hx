@@ -100,6 +100,9 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
     Returns an Iterator over the keys and values of `this` Map in order of insertion.
   **/
   public inline function keyValueIterator():KeyValueIterator<K, V> {
+  //#if cpp
+  //  throw "OrderedMap.KeyValueIterator not yet implemented for cpp.";
+  //#end
     return this.keyValueIterator();
   }
 
