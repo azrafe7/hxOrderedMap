@@ -8,9 +8,9 @@ Hxperimental implementation of ordered maps for Haxe 4.0+ (wrapping haxe.ds.Map)
 
 This is a multi-type abstract that wraps `haxe.ds.Map` and can be used with the same API.
 
-It also adds a few methods (like `length`, `keysCopy()`, `clear()`).
+It also adds a few methods/props (so far `length`, `keysCopy()`, `clear()`).
 
-The main difference with Map is that the order of insertion is preserved when iterated.
+The main difference with Map is that the order of insertion is preserved.
 
 
 ## Minimal example
@@ -37,13 +37,13 @@ trace("UNORDERED: " + map);  // may be  {orange => 3, three => 6, apple => 1, ba
 
 ## Notes
 
-Internal book-keeping to maintain the order of insertion makes using this lib a bit slower than using a Map directly
+Internal book-keeping to maintain the order of insertion makes using this data structure a bit slower than using a Map directly
 (approximately 1.5-2x slower). 
 
-But retrieving some information about an OrderedMap instance is faster for the same reason 
-(like getting the number of key-values, a copy of the keys, or clearing the map).
+Retrieving some info from an OrderedMap instance may be faster for the same reason 
+(like getting the number of key-values, a copy of the keys, clearing the map, etc.).
 
-Hence this is not indended as a replacement for `haxe.ds.Map`, but it can be useful in some situations.
+Note that this is not intended as a replacement for `haxe.ds.Map` (especially if you care about speed), but I found it useful in many situations.
 
 
 ## License (MIT)
