@@ -90,11 +90,7 @@ class OrderedEnumValueMapImpl<K:EnumValue, V> implements IOrderedMap<K, V> {
     See `OrderedMap.keyValueIterator`
   **/
   public inline function keyValueIterator():KeyValueIterator<K, V> {
-  #if (!force_extend_imap && cpp)
-    return throw "OrderedEnumValueMap.KeyValueIterator not yet implemented for cpp.";
-  #else
     return new haxe.iterators.MapKeyValueIterator(this);
-  #end
   }
 
   /**
