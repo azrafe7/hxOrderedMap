@@ -1,0 +1,13 @@
+{
+  "name": "hxOrderedMap",
+  "url" : "https://github.com/azrafe7/hxOrderedMap",
+  "license": "MIT",
+  "tags": ["cross", "map", "ordered"],
+  "description": "multitype ordered maps for haxe 4.0.0-preview5+.",
+  "version": "0.0.1",
+  "releasenote": "",
+  "classPath": "src",
+  "contributors": ["azrafe7"],
+  "dependencies": {
+  }
+}
