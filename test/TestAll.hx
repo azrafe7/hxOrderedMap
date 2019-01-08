@@ -13,10 +13,8 @@ class TestAll {
 
   public static function main() {
     var target = TestUtils.detectedTarget();
-    var forceExtendIMap = #if force_extend_imap true #else false #end;
     trace("defines: \n" + TestUtils.getDefines());
-    trace("detected target  : " + target);
-    trace("force_extend_imap: " + forceExtendIMap + "\n");
+    trace("target : " + target + "\n");
 
     utest.UTest.run([
       new TestOrderedStringMap(),
