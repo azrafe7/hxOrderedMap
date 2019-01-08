@@ -17,6 +17,7 @@
     "maxAnywhereInFile": 2
   },
   "indentation": {
-    "character": "  "
-  }
+    "character": "  ",
+    "conditionalPolicy": "alignedDecrease"
+	}
 }
