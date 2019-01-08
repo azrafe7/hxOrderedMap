@@ -72,13 +72,8 @@ class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
     See `OrderedMap.keys`
   **/
   public inline function keys():Iterator<Int> {
-    // see https://github.com/HaxeFoundation/haxe/issues/7590
-    #if php
     var clonedKeys = orderedKeys.copy();
     return clonedKeys.iterator();
-    #else
-    return orderedKeys.copy().iterator();
-    #end
   }
 
   /**
@@ -92,7 +87,7 @@ class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
     See `OrderedMap.keyValueIterator`
   **/
   public inline function keyValueIterator():KeyValueIterator<Int, T> {
-  #if cpp
+  #if (!force_extend_imap && cpp)
     return throw "OrderedIntMap.KeyValueIterator not yet implemented for cpp.";
   #else
     return new haxe.iterators.MapKeyValueIterator(this);

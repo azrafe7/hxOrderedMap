@@ -75,13 +75,8 @@ class OrderedEnumValueMapImpl<K:EnumValue, V> implements IOrderedMap<K, V> {
     See `OrderedMap.keys`
   **/
   public inline function keys():Iterator<K> {
-    // see https://github.com/HaxeFoundation/haxe/issues/7590
-    #if php
     var clonedKeys = orderedKeys.copy();
     return clonedKeys.iterator();
-    #else
-    return orderedKeys.copy().iterator();
-    #end
   }
 
   /**
@@ -95,7 +90,7 @@ class OrderedEnumValueMapImpl<K:EnumValue, V> implements IOrderedMap<K, V> {
     See `OrderedMap.keyValueIterator`
   **/
   public inline function keyValueIterator():KeyValueIterator<K, V> {
-  #if cpp
+  #if (!force_extend_imap && cpp)
     return throw "OrderedEnumValueMap.KeyValueIterator not yet implemented for cpp.";
   #else
     return new haxe.iterators.MapKeyValueIterator(this);

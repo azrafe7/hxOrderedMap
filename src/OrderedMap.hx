@@ -79,14 +79,12 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
     Returns an Iterator over the keys of `this` map in order of insertion.
   **/
   public inline function keys():Iterator<K> {
-  // @formatter:off
   // see https://github.com/azrafe7/hxOrderedMap/issues/2#issuecomment-435195303
   #if cs
     return (cast this).keys();
   #else
     return this.keys();
   #end
-  // @formatter:on
   }
 
   /**
@@ -100,9 +98,9 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
     Returns an Iterator over the keys and values of `this` Map in order of insertion.
   **/
   public inline function keyValueIterator():KeyValueIterator<K, V> {
-  //#if cpp
-  //  throw "OrderedMap.KeyValueIterator not yet implemented for cpp.";
-  //#end
+    // #if (!force_extend_imap && cpp)
+    //  throw "OrderedMap.KeyValueIterator not yet implemented for cpp.";
+    // #end
     return this.keyValueIterator();
   }
 
