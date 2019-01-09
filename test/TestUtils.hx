@@ -10,8 +10,8 @@ class TestUtils {
     return array;
   }
 
-  public static function detectedTarget():String {
   // @formatter:off
+  public static function detectedTarget():String {
     return
     #if eval
       EVAL;
@@ -40,7 +40,6 @@ class TestUtils {
     #else
       UNKNOWN;
     #end
-  // @formatter:on
   }
 
   #if (!macro) macro #end
@@ -53,6 +52,7 @@ class TestUtils {
     }
     return macro $v{buffer.toString()};
   }
+  // @formatter:on
 }
 
 @:enum abstract TargetType(String) to String {

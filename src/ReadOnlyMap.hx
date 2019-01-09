@@ -1,3 +1,5 @@
+import haxe.ds.Map;
+
 /**
   ReadOnlyMap is an abstract over Map that only exposes methods
   that don't modify the Map instance.

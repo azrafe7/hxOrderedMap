@@ -1,7 +1,7 @@
 hxOrderedMap
 ==========================================
 
-Hxperimental implementation of ordered maps for Haxe 4.0+ (wrapping haxe.ds.Map).
+Ordered maps for haxe 4.0.0-preview5+.
 
 
 ## Overview
@@ -38,12 +38,12 @@ trace("UNORDERED: " + map);  // may be  {orange => 3, three => 6, apple => 1, ba
 ## Notes
 
 Internal book-keeping to maintain the order of insertion makes using this data structure a bit slower than using a Map directly
-(approximately 1.5-2x slower). 
+(e.g. approximately 1.5-2x slower for set/remove). 
 
-Retrieving some info from an OrderedMap instance may be faster for the same reason 
-(like getting the number of key-values, a copy of the keys, clearing the map, etc.).
+Retrieving some info from an OrderedMap instance is faster for the same reason 
+(e.g. getting the number of key-values, a copy of the keys, clearing the map, etc.).
 
-Note that this is not intended as a replacement for `haxe.ds.Map` (especially if you care about speed), but I found it useful in many situations.
+Note that this is not intended as a replacement for `haxe.ds.Map` (especially if you care about speed), but I've found it useful in many situations.
 
 
 ## License (MIT)
