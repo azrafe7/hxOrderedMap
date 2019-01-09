@@ -2,3 +2,8 @@
 -cp ../src
 -cp ../test
 -lib utest
+
+# only needed for testing on cpp
+# not needed when compiling with -lib hxOrderedMap
+-D no-compilation
+--macro PatchCppOutput.use()
