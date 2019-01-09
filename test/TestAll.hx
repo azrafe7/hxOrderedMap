@@ -13,8 +13,8 @@ class TestAll {
 
   public static function main() {
     var target = TestUtils.detectedTarget();
-    trace("defines: \n" + TestUtils.getDefines());
-    trace("target : " + target + "\n");
+    trace("DEFINES: \n" + TestUtils.getDefines());
+    trace("TARGET: " + target + "\n");
 
     utest.UTest.run([
       new TestOrderedStringMap(),

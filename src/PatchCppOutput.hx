@@ -30,7 +30,6 @@ class PatchCppOutput {
         throw 'ERROR: "$fileName" not found.';
       } else {
         var text = File.getContent(fileName);
-
         var regex = new EReg(regexString, "m");
         if (!regex.match(text)) {
           throw "ERROR: Pattern not found.";

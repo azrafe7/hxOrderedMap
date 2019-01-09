@@ -79,7 +79,7 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
     Returns an Iterator over the keys of `this` map in order of insertion.
   **/
   public inline function keys():Iterator<K> {
-  // see https://github.com/azrafe7/hxOrderedMap/issues/2#issuecomment-435195303
+    // see https://github.com/azrafe7/hxOrderedMap/issues/2#issuecomment-435195303
   #if cs
     return (cast this).keys();
   #else
