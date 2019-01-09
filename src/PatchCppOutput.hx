@@ -15,6 +15,7 @@ class PatchCppOutput {
   static public function use() {
     if (Context.defined("cpp")) {
       trace("--- PatchCppOutput.use()");
+      Compiler.define("no-compilation", "1");
       Context.onAfterGenerate(afterGenerate);
     } else {
       trace("--- [SKIP] PatchCppOutput.use()");
