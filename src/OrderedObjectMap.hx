@@ -95,8 +95,8 @@ class OrderedObjectMapImpl<K:{}, V> implements IOrderedMap<K, V> {
   **/
   public function copy():OrderedObjectMapImpl<K, V> {
     var clone = new OrderedObjectMapImpl<K, V>();
-    for (k in orderedKeys)
-      clone.set(k, map.get(k));
+    clone.orderedKeys = orderedKeys.copy();
+    clone.map = map.copy();
     return clone;
   }
 

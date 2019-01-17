@@ -98,8 +98,8 @@ class OrderedEnumValueMapImpl<K:EnumValue, V> implements IOrderedMap<K, V> {
   **/
   public function copy():OrderedEnumValueMapImpl<K, V> {
     var clone = new OrderedEnumValueMapImpl<K, V>();
-    for (k in orderedKeys)
-      clone.set(k, map.get(k));
+    clone.orderedKeys = orderedKeys.copy();
+    clone.map = map.copy();
     return clone;
   }
 

@@ -95,8 +95,8 @@ class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
   **/
   public function copy():OrderedStringMapImpl<T> {
     var clone = new OrderedStringMapImpl<T>();
-    for (k in orderedKeys)
-      clone.set(k, map.get(k));
+    clone.orderedKeys = orderedKeys.copy();
+    clone.map = map.copy();
     return clone;
   }
 
