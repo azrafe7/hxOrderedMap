@@ -4,6 +4,9 @@
     "IOrderedMap.hx"
   ],
   "emptyLines": {
+    "afterLeftCurly": "keep",
+    "afterPackage": 1,
+    "maxAnywhereInFile": 2,
     "abstractEmptyLines": {
       "beginType": 1
     },
@@ -12,9 +15,11 @@
     },
     "interfaceEmptyLines": {
       "beginType": 1
-    },
-    "afterLeftCurly": "keep",
-    "maxAnywhereInFile": 2
+    }
+  },
+  "whitespace": {
+    "typeCheckColonPolicy": "none",
+    "typeHintColonPolicy": "none"
   },
   "indentation": {
     "character": "  ",

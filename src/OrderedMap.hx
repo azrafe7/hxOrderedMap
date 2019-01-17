@@ -148,9 +148,7 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
     invalidates the state of the OrderedMap that wraps it.
    */
   public inline function getInnerMap<K, V>():ReadOnlyMap<K, V> {
-    // @formatter:off
     return @:privateAccess (cast this).map;
-    // @formatter:on
   }
 
   /**
