@@ -21,9 +21,9 @@ class TestAll {
       new TestOrderedIntMap(),
       new TestOrderedObjectMap(),
       new TestOrderedEnumValueMap(),
-      new TestOrderedMapCloning(),
-      new TestOrderedMapOps(),
-      new TestOrderedMapExtraOps(),
+      new TestCloning(),
+      new TestOps(),
+      new TestExtraOps(),
       new TestInnerMap(),
       new TestKeyValueIterator(),
     ]);

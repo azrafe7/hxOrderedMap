@@ -1,6 +1,6 @@
 import utest.Assert;
 
-class TestOrderedMapCloning extends utest.Test {
+class TestCloning extends utest.Test {
 
   public function new() {
     super();

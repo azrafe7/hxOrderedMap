@@ -1,6 +1,6 @@
 import utest.Assert;
 
-class TestOrderedMapOps extends utest.Test {
+class TestOps extends utest.Test {
 
   public function new() {
     super();
