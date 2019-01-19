@@ -125,6 +125,13 @@ class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
   }
 
   /**
+    See `OrderedMap.clear`
+  **/
+  public inline function getInnerMap<K, V>():ReadOnlyMap<K, V> {
+    return cast map;
+  }
+
+  /**
     See `OrderedMap.toString`
   **/
   public function toString():String {
