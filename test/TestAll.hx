@@ -16,6 +16,7 @@ class TestAll {
     trace("DEFINES: \n" + TestUtils.getDefines());
     trace("TARGET: " + target + "\n");
 
+    // @formatter:off
     utest.UTest.run([
       new TestOrderedStringMap(),
       new TestOrderedIntMap(),
@@ -29,5 +30,6 @@ class TestAll {
       new TestFromKeysAndValues(),
       new TestFromMap(),
     ]);
+    // @formatter:on
   }
 }

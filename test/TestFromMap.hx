@@ -10,9 +10,7 @@ class TestFromMap extends utest.Test {
   @Ignored("skipped (not supported on eval)")
   function tests() {}
 #else
-
-  function testEmpty()
-  {
+  function testEmpty() {
     var map = new Map<Int, Int>();
     var omap = OrderedMap.fromMap(map);
     Assert.isTrue(omap.keysCopy().length == 0);

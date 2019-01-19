@@ -10,20 +10,17 @@ class TestFromKeysAndValues extends utest.Test {
   @Ignored("skipped (not supported on eval)")
   function tests() {}
 #else
-
-  function testEmpty()
-  {
-    var omap:OrderedMap<Int,Int> = OrderedMap.fromKeysAndValues([], []);
+  function testEmpty() {
+    var omap:OrderedMap<Int, Int> = OrderedMap.fromKeysAndValues([], []);
     Assert.isTrue(omap.keysCopy().length == 0);
   }
 
-  function testInvalidKeysOrValues()
-  {
-    Assert.raises(function () {
-      var omap = OrderedMap.fromKeysAndValues([1], [1,2]);
+  function testInvalidKeysOrValues() {
+    Assert.raises(function() {
+      var omap = OrderedMap.fromKeysAndValues([1], [1, 2]);
     });
-    Assert.raises(function () {
-      var omap = OrderedMap.fromKeysAndValues([1,2], [1]);
+    Assert.raises(function() {
+      var omap = OrderedMap.fromKeysAndValues([1, 2], [1]);
     });
   }
 
