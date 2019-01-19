@@ -26,6 +26,8 @@ class TestAll {
       new TestExtraOps(),
       new TestInnerMap(),
       new TestKeyValueIterator(),
+      new TestFromKeysAndValues(),
+      new TestFromMap(),
     ]);
   }
 }

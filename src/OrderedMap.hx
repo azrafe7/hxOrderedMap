@@ -165,6 +165,25 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
     return v;
   }
 
+#if !(eval || macro)
+  @:generic static public function fromKeysAndValues<K, V>(keys:Array<K>, values:Array<V>):OrderedMap<K, V> {
+    if (keys.length != values.length)
+      throw "`keys` and `values` must have the same length.";
+    var omap:OrderedMap<K, V> = new OrderedMap<K, V>();
+    for (i in 0...keys.length)
+      omap[keys[i]] = values[i];
+    return omap;
+  }
+
+  @:generic static public function fromMap<K, V>(map:Map<K, V>):OrderedMap<K, V> {
+    var omap = new OrderedMap();
+    for (k in map.keys()) @:privateAccess
+      (cast omap).orderedKeys.push(k);
+    @:privateAccess (cast omap).map = map;
+    return omap;
+  }
+#end
+
   @:to static inline function toOrderedStringMap<K:String, V>(t:IOrderedMap<K, V>):OrderedStringMap<V> {
     return new OrderedStringMap<V>();
   }
