@@ -166,6 +166,16 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
   }
 
 #if !(eval || macro)
+  // NOTE about fromKeysAndValues() and fromMap():
+  //
+  //   - not supported on eval || macro
+  //   - need -D erase_generics to work on C#
+
+  /**
+    Creates a new OrderedMap from `keys` and `values`.
+
+    NOTE: `keys` and `values` must have the same length, otherwise an error will be thrown.
+  **/
   @:generic static public function fromKeysAndValues<K, V>(keys:Array<K>, values:Array<V>):OrderedMap<K, V> {
     if (keys.length != values.length)
       throw "`keys` and `values` must have the same length.";
@@ -175,6 +185,15 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
     return omap;
   }
 
+  /**
+    Creates a new OrderedMap from `map`.
+
+    The initial order of keys will be the same as iterating the input map.
+    Subsequent insertions will retain their order.
+
+    NOTE: `map` (not a copy of it) will be used as the inner map, so altering it afterwards
+    might yield unwanted behaviour.
+  **/
   @:generic static public function fromMap<K, V>(map:Map<K, V>):OrderedMap<K, V> {
     var omap = new OrderedMap();
     for (k in map.keys()) @:privateAccess
