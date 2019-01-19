@@ -1,0 +1,2 @@
+# needed for C# to fix issues with generics (OrderedMap.fromMap()/OrderedMap.fromKeysAndValues())
+-D erase-generics
