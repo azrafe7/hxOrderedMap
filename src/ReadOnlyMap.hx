@@ -7,7 +7,7 @@ import haxe.ds.Map;
   NOTE: this doesn't necessarily mean that the instance is immutable.
   Because other code holding the reference as ordinary Map can still modify it.
 **/
-@:forward(exists, keys, iterator, copy, toString)
+@:forward(exists, keys, iterator, keyValueIterator, copy, toString)
 @:native("ReadOnlyMap")
 abstract ReadOnlyMap<K, V>(Map<K, V>) from Map<K, V> {
 
