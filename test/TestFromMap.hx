@@ -24,7 +24,7 @@ class TestFromMap extends utest.Test {
 
     var omap = OrderedMap.fromMap(map);
     Assert.equals(TestUtils.iteratorToArray(map.keys()).length, omap.keysCopy().length);
-    Assert.equals(map, omap.getInnerMap());
+    Assert.equals(map, omap.innerMap);
 
     var sliceLen = 3;
     var slice = keys.slice(0, sliceLen);
@@ -32,10 +32,10 @@ class TestFromMap extends utest.Test {
       omap.remove(slice[i]);
       omap.set(slice[i], values[i]);
     }
-    var orderedKeys = @:privateAccess (omap:OrderedStringMap<String>).orderedKeys;
+    var orderedKeys = omap.orderedKeys;
     Assert.same(slice, orderedKeys.slice(orderedKeys.length - sliceLen));
 
-    Assert.equals(map, omap.getInnerMap());
+    Assert.equals(map, omap.innerMap);
   }
 
   function testOIntMap() {
@@ -46,7 +46,7 @@ class TestFromMap extends utest.Test {
 
     var omap = OrderedMap.fromMap(map);
     Assert.equals(TestUtils.iteratorToArray(map.keys()).length, omap.keysCopy().length);
-    Assert.equals(map, omap.getInnerMap());
+    Assert.equals(map, omap.innerMap);
 
     var sliceLen = 3;
     var slice = keys.slice(0, sliceLen);
@@ -54,10 +54,10 @@ class TestFromMap extends utest.Test {
       omap.remove(slice[i]);
       omap.set(slice[i], values[i]);
     }
-    var orderedKeys = @:privateAccess (omap:OrderedIntMap<String>).orderedKeys;
+    var orderedKeys = omap.orderedKeys;
     Assert.same(slice, orderedKeys.slice(orderedKeys.length - sliceLen));
 
-    Assert.equals(map, omap.getInnerMap());
+    Assert.equals(map, omap.innerMap);
   }
 
   function testOObjectMap() {
@@ -68,7 +68,7 @@ class TestFromMap extends utest.Test {
 
     var omap = OrderedMap.fromMap(map);
     Assert.equals(TestUtils.iteratorToArray(map.keys()).length, omap.keysCopy().length);
-    Assert.equals(map, omap.getInnerMap());
+    Assert.equals(map, omap.innerMap);
 
     var sliceLen = 3;
     var slice = keys.slice(0, sliceLen);
@@ -76,10 +76,10 @@ class TestFromMap extends utest.Test {
       omap.remove(slice[i]);
       omap.set(slice[i], values[i]);
     }
-    var orderedKeys = @:privateAccess (omap:OrderedObjectMap<{}, String>).orderedKeys;
+    var orderedKeys = omap.orderedKeys;
     Assert.same(slice, orderedKeys.slice(orderedKeys.length - sliceLen));
 
-    Assert.equals(map, omap.getInnerMap());
+    Assert.equals(map, omap.innerMap);
   }
 
   function testOEnumValueMap() {
@@ -90,7 +90,7 @@ class TestFromMap extends utest.Test {
 
     var omap = OrderedMap.fromMap(map);
     Assert.equals(TestUtils.iteratorToArray(map.keys()).length, omap.keysCopy().length);
-    Assert.equals(map, omap.getInnerMap());
+    Assert.equals(map, omap.innerMap);
 
     var sliceLen = 3;
     var slice = keys.slice(0, sliceLen);
@@ -98,10 +98,10 @@ class TestFromMap extends utest.Test {
       omap.remove(slice[i]);
       omap.set(slice[i], values[i]);
     }
-    var orderedKeys = @:privateAccess (omap:OrderedEnumValueMap<EnumValue, String>).orderedKeys;
+    var orderedKeys = omap.orderedKeys;
     Assert.same(slice, orderedKeys.slice(orderedKeys.length - sliceLen));
 
-    Assert.equals(map, omap.getInnerMap());
+    Assert.equals(map, omap.innerMap);
   }
 #end
 }

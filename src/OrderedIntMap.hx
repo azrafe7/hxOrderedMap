@@ -1,5 +1,6 @@
 import haxe.Constraints.IMap;
 import haxe.ds.IntMap;
+import haxe.ds.ReadOnlyArray;
 
 /**
   OrderedIntMap allows mapping of Int keys to arbitrary values,
@@ -27,8 +28,8 @@ abstract OrderedIntMap<T>(OrderedIntMapImpl<T>) from OrderedIntMapImpl<T> {
 class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
 
   @:allow(OrderedIntMapIterator)
-  var orderedKeys:Array<Int> = [];
-  var map:IntMap<T> = new IntMap();
+  var _orderedKeys:Array<Int> = [];
+  var _innerMap:IntMap<T> = new IntMap();
 
   /**
     Creates a new OrderedIntMap.
@@ -39,32 +40,32 @@ class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
     See `OrderedMap.set`
   **/
   public function set(key:Int, value:T):Void {
-    if (!map.exists(key))
-      orderedKeys.push(key);
-    map.set(key, value);
+    if (!_innerMap.exists(key))
+      _orderedKeys.push(key);
+    _innerMap.set(key, value);
   }
 
   /**
     See `OrderedMap.get`
   **/
   public inline function get(key:Int):Null<T> {
-    return map.get(key);
+    return _innerMap.get(key);
   }
 
   /**
     See `OrderedMap.exists`
   **/
   public inline function exists(key:Int):Bool {
-    return map.exists(key);
+    return _innerMap.exists(key);
   }
 
   /**
     See `OrderedMap.remove`
   **/
   public function remove(key:Int):Bool {
-    var removed = map.remove(key);
+    var removed = _innerMap.remove(key);
     if (removed)
-      orderedKeys.remove(key);
+      _orderedKeys.remove(key);
     return removed;
   }
 
@@ -72,7 +73,7 @@ class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
     See `OrderedMap.keys`
   **/
   public inline function keys():Iterator<Int> {
-    var clonedKeys = orderedKeys.copy();
+    var clonedKeys = _orderedKeys.copy();
     return clonedKeys.iterator();
   }
 
@@ -95,16 +96,9 @@ class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
   **/
   public function copy():OrderedIntMapImpl<T> {
     var clone = new OrderedIntMapImpl<T>();
-    clone.orderedKeys = orderedKeys.copy();
-    clone.map = map.copy();
+    clone._orderedKeys = _orderedKeys.copy();
+    clone._innerMap = _innerMap.copy();
     return clone;
-  }
-
-  /**
-    See `OrderedMap.keysCopy`
-  **/
-  public inline function keysCopy():Array<Int> {
-    return orderedKeys.copy();
   }
 
   /**
@@ -113,22 +107,40 @@ class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
   public var length(get, never):Int;
 
   inline function get_length():Int {
-    return orderedKeys.length;
+    return _orderedKeys.length;
+  }
+
+  /**
+    See `OrderedMap.orderedKeys`
+  **/
+  public var orderedKeys(get, never):ReadOnlyArray<Int>;
+
+  inline function get_orderedKeys():ReadOnlyArray<Int> {
+    return cast this._orderedKeys;
+  }
+
+  /**
+    See `OrderedMap.innerMap`
+  **/
+  public var innerMap(get, null):ReadOnlyMap<Int, T>;
+
+  inline function get_innerMap():ReadOnlyMap<Int, T> {
+    return cast this._innerMap;
+  }
+
+  /**
+    See `OrderedMap.keysCopy`
+  **/
+  public inline function keysCopy():Array<Int> {
+    return _orderedKeys.copy();
   }
 
   /**
     See `OrderedMap.clear`
   **/
   public function clear():Void {
-    orderedKeys = [];
-    map = new IntMap();
-  }
-
-  /**
-    See `OrderedMap.clear`
-  **/
-  public inline function getInnerMap<K, V>():ReadOnlyMap<K, V> {
-    return cast map;
+    _orderedKeys = [];
+    _innerMap = new IntMap();
   }
 
   /**
@@ -136,11 +148,11 @@ class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
   **/
   public function toString():String {
     var k:Int;
-    var len = orderedKeys.length;
+    var len = _orderedKeys.length;
     var str = "[";
     for (i in 0...len) {
-      k = orderedKeys[i];
-      str += k + " => " + map.get(k) + (i != len - 1 ? ", " : "");
+      k = _orderedKeys[i];
+      str += k + " => " + _innerMap.get(k) + (i != len - 1 ? ", " : "");
     }
     return str + "]";
   }
@@ -157,10 +169,10 @@ private class OrderedIntMapIterator<V> {
   }
 
   public inline function hasNext():Bool {
-    return index < map.orderedKeys.length;
+    return index < map._orderedKeys.length;
   }
 
   public inline function next():V {
-    return map.get(map.orderedKeys[index++]);
+    return map.get(map._orderedKeys[index++]);
   }
 }

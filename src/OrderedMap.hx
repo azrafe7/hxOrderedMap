@@ -1,4 +1,5 @@
 import haxe.Constraints.IMap;
+import haxe.ds.ReadOnlyArray;
 
 /**
   OrderedMap allows key to value mapping for arbitrary value types, and many key
@@ -116,13 +117,6 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
   }
 
   /**
-    Returns a copy of the keys of `this` map in order of insertion.
-  **/
-  public inline function keysCopy():Array<K> {
-    return this.keysCopy();
-  }
-
-  /**
     Returns the number of key-values in `this` map.
   **/
   public var length(get, never):Int;
@@ -132,13 +126,17 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
   }
 
   /**
-    Empties the map. All key-values are removed.
+    Returns the keys of `this` map as a ReadOnlyArray.
 
-    NOTE: A new *inner* map and orderedKeys array are constructed,
-    so previous references to them are invalid.
+    NOTE: it's not a copy, so altering it (via casting f.e.) will affect
+    the order in which items are retrieved.
+
+    Do it only if you know what you're doing!
   **/
-  public inline function clear():Void {
-    return this.clear();
+  public var orderedKeys(get, never):ReadOnlyArray<K>;
+
+  inline function get_orderedKeys():ReadOnlyArray<K> {
+    return this.orderedKeys;
   }
 
   /**
@@ -147,8 +145,27 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
     NOTE: it's not a copy, so altering it (via casting it to Map, for example),
     invalidates the state of the OrderedMap that wraps it.
    */
-  public inline function getInnerMap<K, V>():ReadOnlyMap<K, V> {
-    return this.getInnerMap();
+  public var innerMap(get, never):ReadOnlyMap<K, V>;
+
+  inline function get_innerMap():ReadOnlyMap<K, V> {
+    return this.innerMap;
+  }
+
+  /**
+    Returns a copy of the keys of `this` map in order of insertion.
+  **/
+  public inline function keysCopy():Array<K> {
+    return this.keysCopy();
+  }
+
+  /**
+    Empties the map. All key-values are removed.
+
+    NOTE: New inner map and orderedKeys array are constructed,
+    so previous references to them are invalid.
+  **/
+  public inline function clear():Void {
+    return this.clear();
   }
 
   /**

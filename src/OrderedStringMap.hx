@@ -1,5 +1,6 @@
 import haxe.Constraints.IMap;
 import haxe.ds.StringMap;
+import haxe.ds.ReadOnlyArray;
 
 /**
   OrderedStringMap allows mapping of String keys to arbitrary values,
@@ -27,8 +28,8 @@ abstract OrderedStringMap<T>(OrderedStringMapImpl<T>) from OrderedStringMapImpl<
 class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
 
   @:allow(OrderedStringMapIterator)
-  var orderedKeys:Array<String> = [];
-  var map:StringMap<T> = new StringMap();
+  var _orderedKeys:Array<String> = [];
+  var _innerMap:StringMap<T> = new StringMap();
 
   /**
     Creates a new OrderedStringMap.
@@ -39,32 +40,32 @@ class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
     See `OrderedMap.set`
   **/
   public function set(key:String, value:T):Void {
-    if (!map.exists(key))
-      orderedKeys.push(key);
-    map.set(key, value);
+    if (!_innerMap.exists(key))
+      _orderedKeys.push(key);
+    _innerMap.set(key, value);
   }
 
   /**
     See `OrderedMap.get`
   **/
   public inline function get(key:String):Null<T> {
-    return map.get(key);
+    return _innerMap.get(key);
   }
 
   /**
     See `OrderedMap.exists`
   **/
   public inline function exists(key:String):Bool {
-    return map.exists(key);
+    return _innerMap.exists(key);
   }
 
   /**
     See `OrderedMap.remove`
   **/
   public function remove(key:String):Bool {
-    var removed = map.remove(key);
+    var removed = _innerMap.remove(key);
     if (removed)
-      orderedKeys.remove(key);
+      _orderedKeys.remove(key);
     return removed;
   }
 
@@ -72,7 +73,7 @@ class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
     See `OrderedMap.keys`
   **/
   public inline function keys():Iterator<String> {
-    var clonedKeys = orderedKeys.copy();
+    var clonedKeys = _orderedKeys.copy();
     return clonedKeys.iterator();
   }
 
@@ -95,16 +96,9 @@ class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
   **/
   public function copy():OrderedStringMapImpl<T> {
     var clone = new OrderedStringMapImpl<T>();
-    clone.orderedKeys = orderedKeys.copy();
-    clone.map = map.copy();
+    clone._orderedKeys = _orderedKeys.copy();
+    clone._innerMap = _innerMap.copy();
     return clone;
-  }
-
-  /**
-    See `OrderedMap.keysCopy`
-  **/
-  public inline function keysCopy():Array<String> {
-    return orderedKeys.copy();
   }
 
   /**
@@ -113,22 +107,40 @@ class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
   public var length(get, never):Int;
 
   inline function get_length():Int {
-    return orderedKeys.length;
+    return _orderedKeys.length;
+  }
+
+  /**
+    See `OrderedMap.orderedKeys`
+  **/
+  public var orderedKeys(get, null):ReadOnlyArray<String>;
+
+  inline function get_orderedKeys():ReadOnlyArray<String> {
+    return cast this._orderedKeys;
+  }
+
+  /**
+    See `OrderedMap.innerMap`
+  **/
+  public var innerMap(get, null):ReadOnlyMap<String, T>;
+
+  inline function get_innerMap():ReadOnlyMap<String, T> {
+    return cast this._innerMap;
+  }
+
+  /**
+    See `OrderedMap.keysCopy`
+  **/
+  public inline function keysCopy():Array<String> {
+    return _orderedKeys.copy();
   }
 
   /**
     See `OrderedMap.clear`
   **/
   public function clear():Void {
-    orderedKeys = [];
-    map = new StringMap();
-  }
-
-  /**
-    See `OrderedMap.clear`
-  **/
-  public inline function getInnerMap<K, V>():ReadOnlyMap<K, V> {
-    return cast map;
+    _orderedKeys = [];
+    _innerMap = new StringMap();
   }
 
   /**
@@ -136,11 +148,11 @@ class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
   **/
   public function toString():String {
     var k:String;
-    var len = orderedKeys.length;
+    var len = _orderedKeys.length;
     var str = "[";
     for (i in 0...len) {
-      k = orderedKeys[i];
-      str += k + " => " + map.get(k) + (i != len - 1 ? ", " : "");
+      k = _orderedKeys[i];
+      str += k + " => " + _innerMap.get(k) + (i != len - 1 ? ", " : "");
     }
     return str + "]";
   }
@@ -157,10 +169,10 @@ private class OrderedStringMapIterator<V> {
   }
 
   public inline function hasNext():Bool {
-    return index < map.orderedKeys.length;
+    return index < map._orderedKeys.length;
   }
 
   public inline function next():V {
-    return map.get(map.orderedKeys[index++]);
+    return map.get(map._orderedKeys[index++]);
   }
 }

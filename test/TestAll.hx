@@ -29,6 +29,7 @@ class TestAll {
       new TestKeyValueIterator(),
       new TestFromKeysAndValues(),
       new TestFromMap(),
+      new TestReadOnlyKeys(),
     ]);
     // @formatter:on
   }

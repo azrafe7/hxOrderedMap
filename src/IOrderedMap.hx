@@ -1,4 +1,5 @@
 import haxe.Constraints.IMap;
+import haxe.ds.ReadOnlyArray;
 
 interface IOrderedMap<K, V> extends IMap<K, V> {
 
@@ -14,8 +15,9 @@ interface IOrderedMap<K, V> extends IMap<K, V> {
   function toString():String;
 
   /* IOrderedMap */
-  var length(get, null):Int;
+  var length(get, never):Int;
+  var orderedKeys(get, null):ReadOnlyArray<K>;
+  var innerMap(get, null):ReadOnlyMap<K, V>;
   function keysCopy():Array<K>;
   function clear():Void;
-  function getInnerMap<K, V>():ReadOnlyMap<K, V>;
 }

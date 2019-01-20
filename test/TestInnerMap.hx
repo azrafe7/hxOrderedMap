@@ -16,9 +16,9 @@ class TestInnerMap extends utest.Test {
     new TestOrderedStringMap().setup();
     var omap = TestOrderedStringMap.buildOrderedMapFrom(TestOrderedStringMap.keys, TestOrderedStringMap.stringValues);
 
-    var map = omap.getInnerMap();
+    var map = omap.innerMap;
     var orderedKeys = TestUtils.iteratorToArray(omap.keys());
-    var defaultKeys = TestUtils.iteratorToArray(omap.getInnerMap().keys());
+    var defaultKeys = TestUtils.iteratorToArray(omap.innerMap.keys());
 
     Assert.notEquals(map, omap);
     Assert.equals(defaultKeys.length, orderedKeys.length);
@@ -38,7 +38,7 @@ class TestInnerMap extends utest.Test {
 
     /* cannot modify read-only inner map */
     Assert.raises(function() {
-      omap.getInnerMap()[newKey] = newValue;
+      omap.innerMap[newKey] = newValue;
     });
 
     _testMap(cast map, newKey, "newer value for string key");
@@ -48,9 +48,9 @@ class TestInnerMap extends utest.Test {
     new TestOrderedIntMap().setup();
     var omap = TestOrderedIntMap.buildOrderedMapFrom(TestOrderedIntMap.keys, TestOrderedIntMap.stringValues);
 
-    var map = omap.getInnerMap();
+    var map = omap.innerMap;
     var orderedKeys = TestUtils.iteratorToArray(omap.keys());
-    var defaultKeys = TestUtils.iteratorToArray(omap.getInnerMap().keys());
+    var defaultKeys = TestUtils.iteratorToArray(omap.innerMap.keys());
 
     Assert.notEquals(map, omap);
     Assert.equals(defaultKeys.length, orderedKeys.length);
@@ -70,7 +70,7 @@ class TestInnerMap extends utest.Test {
 
     /* cannot modify read-only inner map */
     Assert.raises(function() {
-      omap.getInnerMap()[newKey] = newValue;
+      omap.innerMap[newKey] = newValue;
     });
 
     _testMap(cast map, newKey, "newer value for int key");
@@ -80,9 +80,9 @@ class TestInnerMap extends utest.Test {
     new TestOrderedObjectMap().setup();
     var omap = TestOrderedObjectMap.buildOrderedMapFrom(TestOrderedObjectMap.keys, TestOrderedObjectMap.stringValues);
 
-    var map = omap.getInnerMap();
+    var map = omap.innerMap;
     var orderedKeys = TestUtils.iteratorToArray(omap.keys());
-    var defaultKeys = TestUtils.iteratorToArray(omap.getInnerMap().keys());
+    var defaultKeys = TestUtils.iteratorToArray(omap.innerMap.keys());
 
     Assert.notEquals(map, omap);
     Assert.equals(defaultKeys.length, orderedKeys.length);
@@ -102,7 +102,7 @@ class TestInnerMap extends utest.Test {
 
     /* cannot modify read-only inner map */
     Assert.raises(function() {
-      omap.getInnerMap()[newKey] = newValue;
+      omap.innerMap[newKey] = newValue;
     });
 
     _testMap(cast map, newKey, "newer value for obj key");
@@ -112,9 +112,9 @@ class TestInnerMap extends utest.Test {
     new TestOrderedEnumValueMap().setup();
     var omap = TestOrderedEnumValueMap.buildOrderedMapFrom(TestOrderedEnumValueMap.keys, TestOrderedEnumValueMap.stringValues);
 
-    var map = omap.getInnerMap();
+    var map = omap.innerMap;
     var orderedKeys = TestUtils.iteratorToArray(omap.keys());
-    var defaultKeys = TestUtils.iteratorToArray(omap.getInnerMap().keys());
+    var defaultKeys = TestUtils.iteratorToArray(omap.innerMap.keys());
 
     Assert.notEquals(map, omap);
     Assert.equals(defaultKeys.length, orderedKeys.length);
@@ -134,7 +134,7 @@ class TestInnerMap extends utest.Test {
 
     /* cannot modify read-only inner map */
     Assert.raises(function() {
-      omap.getInnerMap()[newKey] = newValue;
+      omap.innerMap[newKey] = newValue;
     });
 
     _testMap(cast map, newKey, "newer value for enum key");

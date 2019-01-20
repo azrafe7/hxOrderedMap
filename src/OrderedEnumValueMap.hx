@@ -1,5 +1,6 @@
 import haxe.Constraints.IMap;
 import haxe.ds.EnumValueMap;
+import haxe.ds.ReadOnlyArray;
 
 /**
   OrderedEnumValueMap allows mapping of enum value keys to arbitrary values,
@@ -30,8 +31,8 @@ abstract OrderedEnumValueMap<K:EnumValue, V>(OrderedEnumValueMapImpl<K, V>) from
 class OrderedEnumValueMapImpl<K:EnumValue, V> implements IOrderedMap<K, V> {
 
   @:allow(OrderedEnumValueMapIterator)
-  var orderedKeys:Array<K> = [];
-  var map:EnumValueMap<K, V> = new EnumValueMap();
+  var _orderedKeys:Array<K> = [];
+  var _innerMap:EnumValueMap<K, V> = new EnumValueMap();
 
   /**
     Creates a new OrderedEnumValueMap.
@@ -42,32 +43,32 @@ class OrderedEnumValueMapImpl<K:EnumValue, V> implements IOrderedMap<K, V> {
     See `OrderedMap.set`
   **/
   public function set(key:K, value:V):Void {
-    if (!map.exists(key))
-      orderedKeys.push(key);
-    map.set(key, value);
+    if (!_innerMap.exists(key))
+      _orderedKeys.push(key);
+    _innerMap.set(key, value);
   }
 
   /**
     See `OrderedMap.get`
   **/
   public inline function get(key:K):Null<V> {
-    return map.get(key);
+    return _innerMap.get(key);
   }
 
   /**
     See `OrderedMap.exists`
   **/
   public inline function exists(key:K):Bool {
-    return map.exists(key);
+    return _innerMap.exists(key);
   }
 
   /**
     See `OrderedMap.remove`
   **/
   public function remove(key:K):Bool {
-    var removed = map.remove(key);
+    var removed = _innerMap.remove(key);
     if (removed)
-      orderedKeys.remove(key);
+      _orderedKeys.remove(key);
     return removed;
   }
 
@@ -75,7 +76,7 @@ class OrderedEnumValueMapImpl<K:EnumValue, V> implements IOrderedMap<K, V> {
     See `OrderedMap.keys`
   **/
   public inline function keys():Iterator<K> {
-    var clonedKeys = orderedKeys.copy();
+    var clonedKeys = _orderedKeys.copy();
     return clonedKeys.iterator();
   }
 
@@ -98,16 +99,9 @@ class OrderedEnumValueMapImpl<K:EnumValue, V> implements IOrderedMap<K, V> {
   **/
   public function copy():OrderedEnumValueMapImpl<K, V> {
     var clone = new OrderedEnumValueMapImpl<K, V>();
-    clone.orderedKeys = orderedKeys.copy();
-    clone.map = map.copy();
+    clone._orderedKeys = _orderedKeys.copy();
+    clone._innerMap = _innerMap.copy();
     return clone;
-  }
-
-  /**
-    See `OrderedMap.keysCopy`
-  **/
-  public inline function keysCopy():Array<K> {
-    return orderedKeys.copy();
   }
 
   /**
@@ -116,22 +110,40 @@ class OrderedEnumValueMapImpl<K:EnumValue, V> implements IOrderedMap<K, V> {
   public var length(get, never):Int;
 
   inline function get_length():Int {
-    return orderedKeys.length;
+    return _orderedKeys.length;
+  }
+
+  /**
+    See `OrderedMap.orderedKeys`
+  **/
+  public var orderedKeys(get, null):ReadOnlyArray<K>;
+
+  inline function get_orderedKeys():ReadOnlyArray<K> {
+    return cast this._orderedKeys;
+  }
+
+  /**
+    See `OrderedMap.innerMap`
+  **/
+  public var innerMap(get, null):ReadOnlyMap<K, V>;
+
+  inline function get_innerMap():ReadOnlyMap<K, V> {
+    return cast this._innerMap;
+  }
+
+  /**
+    See `OrderedMap.keysCopy`
+  **/
+  public inline function keysCopy():Array<K> {
+    return _orderedKeys.copy();
   }
 
   /**
     See `OrderedMap.clear`
   **/
   public function clear():Void {
-    orderedKeys = [];
-    map = new EnumValueMap();
-  }
-
-  /**
-    See `OrderedMap.clear`
-  **/
-  public inline function getInnerMap<K, V>():ReadOnlyMap<K, V> {
-    return cast map;
+    _orderedKeys = [];
+    _innerMap = new EnumValueMap();
   }
 
   /**
@@ -139,11 +151,11 @@ class OrderedEnumValueMapImpl<K:EnumValue, V> implements IOrderedMap<K, V> {
   **/
   public function toString():String {
     var k:K;
-    var len = orderedKeys.length;
+    var len = _orderedKeys.length;
     var str = "[";
     for (i in 0...len) {
-      k = orderedKeys[i];
-      str += k + " => " + map.get(k) + (i != len - 1 ? ", " : "");
+      k = _orderedKeys[i];
+      str += k + " => " + _innerMap.get(k) + (i != len - 1 ? ", " : "");
     }
     return str + "]";
   }
@@ -160,10 +172,10 @@ private class OrderedEnumValueMapIterator<K:EnumValue, V> {
   }
 
   public inline function hasNext():Bool {
-    return index < map.orderedKeys.length;
+    return index < map._orderedKeys.length;
   }
 
   public inline function next():V {
-    return map.get(map.orderedKeys[index++]);
+    return map.get(map._orderedKeys[index++]);
   }
 }
