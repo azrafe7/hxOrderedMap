@@ -212,9 +212,8 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
   **/
   @:generic static public function fromMap<K, V>(map:Map<K, V>):OrderedMap<K, V> {
     var omap = new OrderedMap();
-    for (k in map.keys()) @:privateAccess
-      (cast omap).orderedKeys.push(k);
-    @:privateAccess (cast omap).map = map;
+    for (k in map.keys()) @:privateAccess (cast omap)._orderedKeys.push(k);
+    @:privateAccess (cast omap)._innerMap = map;
     return omap;
   }
 #end
