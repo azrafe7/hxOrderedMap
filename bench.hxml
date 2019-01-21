@@ -1,0 +1,14 @@
+-cp src
+-cp test
+-cp bench
+
+-main Bench
+
+#-debug
+
+# only needed for testing on cpp
+# not needed when compiling with -lib hxOrderedMap
+--macro PatchCppOutput.use()
+
+# needed for C# to fix issues with generics (OrderedMap.fromMap()/OrderedMap.fromKeysAndValues())
+-D erase-generics

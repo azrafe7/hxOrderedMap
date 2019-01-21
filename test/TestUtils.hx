@@ -11,7 +11,7 @@ class TestUtils {
   }
 
   // @formatter:off
-  public static function detectedTarget():String {
+  public static function detectedTarget():TargetType {
     return
     #if eval
       EVAL;

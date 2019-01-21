@@ -94,6 +94,7 @@ install:
   - haxelib list
 
 script:
+# TESTS
   - haxe build-interp.hxml
   - haxe build-neko.hxml         && neko bin/TestAll.n
   - haxe build-js.hxml           && node bin/TestAll.js
@@ -105,3 +106,5 @@ script:
   - haxe build-python.hxml       && python3 bin/TestAll.py
   - haxe build-lua.hxml          && lua bin/TestAll.lua
 #  - haxe build-flash.hxml -D fdb && haxe flash/run.hxml bin/TestAll.swf
+# BENCHMARKS
+  - haxe bench-interp.hxml
