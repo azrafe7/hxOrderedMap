@@ -91,6 +91,7 @@ install:
   - haxelib install hxjava
   - haxelib install hxcs
   - haxelib install utest
+  - haxelib install hxnodejs
   - haxelib list
 
 script:
