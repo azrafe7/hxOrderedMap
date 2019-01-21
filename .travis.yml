@@ -107,4 +107,8 @@ script:
   - haxe build-lua.hxml          && lua bin/TestAll.lua
 #  - haxe build-flash.hxml -D fdb && haxe flash/run.hxml bin/TestAll.swf
 # BENCHMARKS
-  - haxe bench-interp.hxml
+  - haxe benchmark-interp.hxml
+  - haxe benchmark-neko.hxml     && neko bin/Bench.n
+  - haxe benchmark-js.hxml       && node bin/Bench.js
+                                 && haxe phantomjs/run.hxml bin/Bench.js
+

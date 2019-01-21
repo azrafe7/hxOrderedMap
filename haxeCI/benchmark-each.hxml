@@ -1,4 +1,4 @@
-../bench.hxml
+../benchmark.hxml
 -cp ../src
 -cp ../test
 -cp ../bench

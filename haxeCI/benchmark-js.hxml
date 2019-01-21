@@ -1,0 +1,5 @@
+benchmark-each.hxml
+-js bin/Bench.js
+
+# needed for Sys.println()
+-lib hxnodejs
