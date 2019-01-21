@@ -1,6 +1,10 @@
 import haxe.Constraints.IMap;
 import haxe.ds.ReadOnlyArray;
 
+#if (cs && !erase_generics)
+#error 'Compile with "-D erase_generics" to make it work on C#'
+#end
+
 /**
   OrderedMap allows key to value mapping for arbitrary value types, and many key
   types.
@@ -188,7 +192,7 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
 
     NOTE: `keys` and `values` must have the same length, otherwise an error will be thrown.
 
-    (not supported on eval/macro, needs -D erase_generics to work on C#)
+    (not yet supported on eval/macro)
   **/
   @:generic static public function fromKeysAndValues<K, V>(keys:Array<K>, values:Array<V>):OrderedMap<K, V> {
     if (keys.length != values.length)
@@ -208,7 +212,7 @@ abstract OrderedMap<K, V>(IOrderedMap<K, V>) {
     NOTE: `map` (not a copy of it) will be used as the inner map, so altering it afterwards
     might yield unwanted behaviour.
 
-    (not supported on eval/macro, needs -D erase_generics to work on C#)
+    (not yet supported on eval/macro)
   **/
   @:generic static public function fromMap<K, V>(map:Map<K, V>):OrderedMap<K, V> {
     var omap = new OrderedMap();
