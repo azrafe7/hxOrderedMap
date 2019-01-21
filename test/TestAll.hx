@@ -30,6 +30,7 @@ class TestAll {
       new TestFromKeysAndValues(),
       new TestFromMap(),
       new TestReadOnlyKeys(),
+      new TestRemove(),
     ]);
     // @formatter:on
   }

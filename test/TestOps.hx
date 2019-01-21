@@ -20,12 +20,6 @@ class TestOps extends utest.Test {
     Assert.isTrue(omap.exists(k) && omap[k] == v);
     var orderedKeys = TestUtils.iteratorToArray(omap.keys());
     Assert.equals(k, orderedKeys[orderedKeys.length - 1]);
-
-    for (k in omap.keys())
-      Assert.isTrue(omap.remove(k));
-    Assert.isFalse(omap.remove(k));
-
-    Assert.equals(0, TestUtils.iteratorToArray(omap.iterator()).length);
   }
 
   function testOIntMap() {
@@ -42,12 +36,6 @@ class TestOps extends utest.Test {
     Assert.isTrue(omap.exists(k) && omap[k] == v);
     var orderedKeys = TestUtils.iteratorToArray(omap.keys());
     Assert.equals(k, orderedKeys[orderedKeys.length - 1]);
-
-    for (k in omap.keys())
-      Assert.isTrue(omap.remove(k));
-    Assert.isFalse(omap.remove(k));
-
-    Assert.equals(0, TestUtils.iteratorToArray(omap.iterator()).length);
   }
 
   function testOObjectMap() {
@@ -64,12 +52,6 @@ class TestOps extends utest.Test {
     Assert.isTrue(omap.exists(k) && omap[k] == v);
     var orderedKeys = TestUtils.iteratorToArray(omap.keys());
     Assert.equals(k, orderedKeys[orderedKeys.length - 1]);
-
-    for (k in omap.keys())
-      Assert.isTrue(omap.remove(k));
-    Assert.isFalse(omap.remove(k));
-
-    Assert.equals(0, TestUtils.iteratorToArray(omap.iterator()).length);
   }
 
   function testOEnumValueMap() {
@@ -86,11 +68,5 @@ class TestOps extends utest.Test {
     Assert.isTrue(omap.exists(k) && omap[k] == v);
     var orderedKeys = TestUtils.iteratorToArray(omap.keys());
     Assert.equals(k, orderedKeys[orderedKeys.length - 1]);
-
-    for (k in omap.keys())
-      Assert.isTrue(omap.remove(k));
-    Assert.isFalse(omap.remove(k));
-
-    Assert.equals(0, TestUtils.iteratorToArray(omap.iterator()).length);
   }
 }
