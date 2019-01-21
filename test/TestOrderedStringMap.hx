@@ -10,6 +10,9 @@ class TestOrderedStringMap extends utest.Test {
     keys = ["1", "apple", "banana", "orange", "one", "two", "three"];
     stringValues = [for (i in 0...keys.length) Std.string(i)];
 
+    // shuffle keys
+    TestUtils.shuffle(keys);
+
     // trace("ORDERED_MAP  : " + buildOrderedMapFrom(keys, stringValues));
     // trace("DEFAULT_MAP  : " + buildMapFrom(keys, stringValues));
     // trace("-- END SETUP");

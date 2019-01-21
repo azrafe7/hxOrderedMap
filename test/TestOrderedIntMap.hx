@@ -10,6 +10,9 @@ class TestOrderedIntMap extends utest.Test {
     keys = [0, 1, 2, 3, 4, 5, 6];
     stringValues = [for (i in 0...keys.length) Std.string(i)];
 
+    // shuffle keys
+    TestUtils.shuffle(keys);
+
     // trace("ORDERED_MAP  : " + buildOrderedMapFrom(keys, stringValues));
     // trace("DEFAULT_MAP  : " + buildMapFrom(keys, stringValues));
     // trace("-- END SETUP");
