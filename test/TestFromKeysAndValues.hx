@@ -8,7 +8,7 @@ class TestFromKeysAndValues extends utest.Test {
 
 #if (eval || macro)
   @Ignored("skipped (not supported on eval)")
-  function tests() {}
+  function tests() { }
 #else
   function testEmpty() {
     var omap:OrderedMap<Int, Int> = OrderedMap.fromKeysAndValues([], []);

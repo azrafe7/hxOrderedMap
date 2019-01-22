@@ -1,6 +1,6 @@
 package hxbenchmark;
 
 typedef SuiteResult = {
-	var name:String;
-	var cases:Array<CaseResult>;
+  var name:String;
+  var cases:Array<CaseResult>;
 }

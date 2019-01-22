@@ -34,7 +34,7 @@ class OrderedObjectMapImpl<K:{}, V> implements IOrderedMap<K, V> {
   /**
     Creates a new OrderedObjectMap.
   **/
-  public function new():Void {}
+  public function new():Void { }
 
   /**
     See `OrderedMap.set`

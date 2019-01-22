@@ -34,7 +34,7 @@ class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
   /**
     Creates a new OrderedIntMap.
   **/
-  public function new():Void {}
+  public function new():Void { }
 
   /**
     See `OrderedMap.set`
