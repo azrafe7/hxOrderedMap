@@ -11,7 +11,7 @@ class Set extends TestCase {
     var data = [for (i in 0...N) i];
     TestUtils.shuffle(data);
 
-    var suite = new Suite('IntMap .set)', MAX_TIME_PER_CASE);
+    var suite = new Suite('IntMap.set()', MAX_TIME_PER_CASE);
 
     suite.add("map.set()", {
       var map = new Map();
@@ -22,16 +22,6 @@ class Set extends TestCase {
       var omap = new OrderedMap();
       for (d in data)
         omap.set(d, d);
-    });
-    suite.add("map[]", {
-      var map = new Map();
-      for (d in data)
-        map[d] = d;
-    });
-    suite.add("omap[]", {
-      var omap = new OrderedMap();
-      for (d in data)
-        omap[d] = d;
     });
 
     return suite.run();
@@ -41,7 +31,7 @@ class Set extends TestCase {
     var data = [for (i in 0...N) "" + i];
     TestUtils.shuffle(data);
 
-    var suite = new Suite('StringMap .set)', MAX_TIME_PER_CASE);
+    var suite = new Suite('StringMap.set()', MAX_TIME_PER_CASE);
 
     suite.add("map.set()", {
       var map = new Map();
@@ -52,16 +42,6 @@ class Set extends TestCase {
       var omap = new OrderedMap();
       for (d in data)
         omap.set(d, d);
-    });
-    suite.add("map[]", {
-      var map = new Map();
-      for (d in data)
-        map[d] = d;
-    });
-    suite.add("omap[]", {
-      var omap = new OrderedMap();
-      for (d in data)
-        omap[d] = d;
     });
 
     return suite.run();
