@@ -43,6 +43,8 @@ Internal book-keeping to maintain the order of insertion makes using this data s
 Retrieving some info from an OrderedMap instance is faster for the same reason 
 (e.g. getting the number of key-values, a copy of the keys, clearing the map, etc.).
 
+Benchmarks for latest build (https://azrafe7.github.io/haxe-bencharts/?repo=azrafe7/hxOrderedMap).
+
 Note that this is not intended as a replacement for `haxe.ds.Map` (especially if you care about speed), but I've found it useful in many situations.
 
 
