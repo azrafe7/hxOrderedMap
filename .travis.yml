@@ -111,5 +111,5 @@ script:
   - haxe benchmark-interp.hxml
   - haxe benchmark-neko.hxml     && neko bin/Bench.n
   - haxe benchmark-js.hxml       && node bin/Bench.js
-                                 && haxe phantomjs/run.hxml bin/Bench.js
+#                                 && haxe phantomjs/run.hxml bin/Bench.js
 
