@@ -3,18 +3,17 @@ import hxbenchmark.ResultPrinter;
 import TravisUtils.*;
 import TestUtils.TargetType;
 
+/**
+  BENCHMARKS
+
+  this runs after all targets tests (so all dependencies are already set up)
+  and only for the targets that can write to the console
+ */
 class Bench {
 
   static inline var RUN_BENCHMARKS = true;
 
   static function main() {
-
-    /**
-      BENCHMARKS
-
-      these run after each target's tests (so all dependencies are already set up)
-      and only for the targets that can write to the console
-     */
 
 
     var target = TestUtils.detectedTarget();
@@ -25,7 +24,8 @@ class Bench {
   #else
     if (RUN_BENCHMARKS && isBenchable) {
 
-      infoMsg('travis_fold:start:bench-${target}');
+      Sys.println('travis_fold:start:bench-${target}');
+      infoMsg('bench ${target}');
       Sys.println("DEFINES: \n" + TestUtils.getDefines());
       Sys.println("TARGET: " + target + "\n");
 

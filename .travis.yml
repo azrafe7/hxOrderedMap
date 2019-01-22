@@ -116,7 +116,7 @@ script:
   - haxe benchmark-java.hxml     && java -jar bin/Bench.jar
   - haxe benchmark-php.hxml      && php bin/index.php
   - haxe benchmark-cs.hxml       && mono bin/bin/Bench.exe
-  - haxe benchmark-cpp.hxml      && ./bin/TestAll
+  - haxe benchmark-cpp.hxml      && ./bin/Bench
   - haxe benchmark-python.hxml   && python3 bin/Bench.py
   - haxe benchmark-lua.hxml      && lua bin/Bench.lua
 #  - haxe benchmark-flash.hxml -D fdb && haxe flash/run.hxml bin/Bench.swf
