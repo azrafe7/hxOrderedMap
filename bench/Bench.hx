@@ -24,7 +24,7 @@ class Bench {
 
     if (RUN_BENCHMARKS && isBenchable) {
 
-      Sys.println('travis_fold:start:bench-${target}');
+      infoMsg('travis_fold:start:bench-${target}');
       Sys.println("DEFINES: \n" + TestUtils.getDefines());
       Sys.println("TARGET: " + target + "\n");
 
@@ -39,7 +39,7 @@ class Bench {
         benchCase.exec.run(print);
       }
 
-      Sys.println('travis_fold:end:bench-${target}');
+      infoMsg('travis_fold:end:bench-${target}');
     }
   #end
 	}
