@@ -34,7 +34,7 @@ class OrderedStringMapImpl<T> implements IOrderedMap<String, T> {
   /**
     Creates a new OrderedStringMap.
   **/
-  public function new():Void {}
+  public function new():Void { }
 
   /**
     See `OrderedMap.set`

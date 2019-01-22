@@ -19,8 +19,22 @@
   },
   "whitespace": {
     "typeCheckColonPolicy": "none",
-    "typeHintColonPolicy": "none"
-  },
+    "typeHintColonPolicy": "none",
+    "bracesConfig": {
+      "blockBraces": {
+        "openingPolicy": "around",
+        "closingPolicy": "around",
+        "removeInnerWhenEmpty": false
+      }
+    },
+    "parenConfig": {
+      "funcParamParens": {
+        "openingPolicy": "none",
+        "closingPolicy": "onlyAfter",
+        "removeInnerWhenEmpty": true
+      }
+    }
+ },
   "indentation": {
     "character": "  ",
     "conditionalPolicy": "alignedDecrease"

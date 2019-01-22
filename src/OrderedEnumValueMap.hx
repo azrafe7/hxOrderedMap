@@ -37,7 +37,7 @@ class OrderedEnumValueMapImpl<K:EnumValue, V> implements IOrderedMap<K, V> {
   /**
     Creates a new OrderedEnumValueMap.
   **/
-  public function new():Void {}
+  public function new():Void { }
 
   /**
     See `OrderedMap.set`

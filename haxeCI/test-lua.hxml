@@ -1,2 +1,2 @@
-build-each.hxml
+test-each.hxml
 -lua bin/TestAll.lua

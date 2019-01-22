@@ -11,7 +11,7 @@ class TestUtils {
   }
 
   // @formatter:off
-  public static function detectedTarget():String {
+  public static function detectedTarget():TargetType {
     return
     #if eval
       EVAL;
@@ -53,10 +53,8 @@ class TestUtils {
     return macro $v{buffer.toString()};
   }
   // @formatter:on
-
   /** Fisher-Yates shuffle */
-  static public function shuffle<T>(a:Array<T>):Void
-  {
+  static public function shuffle<T>(a:Array<T>):Void {
     var len = a.length;
     for (i in 0...len - 1) {
       var j = i + Std.random(len - i);
@@ -65,8 +63,7 @@ class TestUtils {
   }
 
   /** Fisher-Yates shuffle range [lo-hi) */
-  static public function shuffleRange<T>(a:Array<T>, lo:Int, hi:Int):Void
-  {
+  static public function shuffleRange<T>(a:Array<T>, lo:Int, hi:Int):Void {
     var len = hi - lo;
     for (i in 0...len - 1) {
       var j = i + Std.random(len - i);
@@ -75,8 +72,7 @@ class TestUtils {
   }
 
   /** Swap item at `i` with item at `j` */
-  static public inline function swap<T>(a:Array<T>, i:Int, j:Int):Void
-  {
+  static public inline function swap<T>(a:Array<T>, i:Int, j:Int):Void {
     var tmp = a[i];
     a[i] = a[j];
     a[j] = tmp;

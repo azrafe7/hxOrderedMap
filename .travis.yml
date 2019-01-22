@@ -91,17 +91,33 @@ install:
   - haxelib install hxjava
   - haxelib install hxcs
   - haxelib install utest
+  - haxelib install hxnodejs
   - haxelib list
 
 script:
-  - haxe build-interp.hxml
-  - haxe build-neko.hxml         && neko bin/TestAll.n
-  - haxe build-js.hxml           && node bin/TestAll.js
+# TESTS
+  - haxe test-interp.hxml
+  - haxe test-neko.hxml          && neko bin/TestAll.n
+  - haxe test-js.hxml            && node bin/TestAll.js
                                  && haxe phantomjs/run.hxml bin/TestAll.js
-  - haxe build-java.hxml         && java -jar bin/TestAll.jar
-  - haxe build-php.hxml          && php bin/index.php
-  - haxe build-cs.hxml           && mono bin/bin/TestAll.exe
-  - haxe build-cpp.hxml          && ./bin/TestAll
-  - haxe build-python.hxml       && python3 bin/TestAll.py
-  - haxe build-lua.hxml          && lua bin/TestAll.lua
-#  - haxe build-flash.hxml -D fdb && haxe flash/run.hxml bin/TestAll.swf
+  - haxe test-java.hxml          && java -jar bin/TestAll.jar
+  - haxe test-php.hxml           && php bin/index.php
+  - haxe test-cs.hxml            && mono bin/bin/TestAll.exe
+  - haxe test-cpp.hxml           && ./bin/TestAll
+  - haxe test-python.hxml        && python3 bin/TestAll.py
+  - haxe test-lua.hxml           && lua bin/TestAll.lua
+#  - haxe test-flash.hxml -D fdb && haxe flash/run.hxml bin/TestAll.swf
+
+# BENCHMARKS
+  - haxe benchmark-interp.hxml
+  - haxe benchmark-neko.hxml     && neko bin/Bench.n
+  - haxe benchmark-js.hxml       && node bin/Bench.js
+#                                 && haxe phantomjs/run.hxml bin/Bench.js
+  - haxe benchmark-java.hxml     && java -jar bin/Bench.jar
+  - haxe benchmark-php.hxml      && php bin/index.php
+  - haxe benchmark-cs.hxml       && mono bin/bin/Bench.exe
+  - haxe benchmark-cpp.hxml      && ./bin/Bench
+  - haxe benchmark-python.hxml   && python3 bin/Bench.py
+  - haxe benchmark-lua.hxml      && lua bin/Bench.lua
+#  - haxe benchmark-flash.hxml -D fdb && haxe flash/run.hxml bin/Bench.swf
+
