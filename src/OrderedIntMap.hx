@@ -73,8 +73,7 @@ class OrderedIntMapImpl<T> implements IOrderedMap<Int, T> {
     See `OrderedMap.keys`
   **/
   public inline function keys():Iterator<Int> {
-    var clonedKeys = _orderedKeys.copy();
-    return clonedKeys.iterator();
+    return _orderedKeys.iterator();
   }
 
   /**

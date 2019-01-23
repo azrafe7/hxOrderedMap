@@ -73,8 +73,7 @@ class OrderedObjectMapImpl<K:{}, V> implements IOrderedMap<K, V> {
     See `OrderedMap.keys`
   **/
   public inline function keys():Iterator<K> {
-    var clonedKeys = _orderedKeys.copy();
-    return clonedKeys.iterator();
+    return _orderedKeys.iterator();
   }
 
   /**
